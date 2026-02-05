@@ -1,0 +1,171 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 9,
+  "summary": "Build a colourful, child-friendly yet professional, Netlify-ready static website inspired by cuemath.com using HTML/CSS/vanilla JS, with 4 core pages (Home, About/Why Choose Us, Services, Contact), smooth subtle animations, and a rotating circular hero element.",
+  "architectural_notes": [
+    "Static multi-page site built with HTML/CSS/vanilla JS only; deployable on Netlify with no backend",
+    "Use relative paths for assets; placeholder images/text only",
+    "Contact form should be compatible with Netlify Forms",
+    "Home hero: rotating circular element should be scaled up to approximately half-page size while maintaining smooth rotation and hover-pause behavior.",
+    "Logo in circular hero element must support square PNG upload: center it and apply circular mask/crop (e.g., border-radius:50% and object-fit:cover/contain) to prevent overflow/cut-off at all sizes.",
+    "Home hero: rotating circular element should be bigger than half-page/hero height on desktop while remaining responsive and not causing overflow on tablet/mobile."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-a-colourful-vibrant-modern-informative-marketing-website-inspired-by-the-design-quality-clarity-visual-appeal-of-cuemath-com-with-a-child-friendly-but-professional-look-that-feels-trustworthy-for-parents-bright-but-balanced-colours-rounded-shapes-friendly-typography-generous-spacing-clean-uncluttered-layout",
+      "title": "Implement a colourful, vibrant, modern, informative marketing website inspired by the design quality/clarity/visual appeal of cuemath.com, with a child-friendly but professional look that feels trustworthy for parents (bright but balanced colours, rounded shapes, friendly typography, generous spacing, clean uncluttered layout).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-4-page-site-structure-with-top-navigation-links-to-home-about-why-choose-us-services-contact-navigation-must-be-sticky-on-scroll-and-include-a-mobile-hamburger-menu",
+      "title": "Create a 4-page site structure with top navigation links to: Home, About / Why Choose Us, Services, Contact. Navigation must be sticky on scroll and include a mobile hamburger menu.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-home-introduction-page-as-the-first-impression-page-with-section-based-scrolling-no-internal-tabs-include-a-bold-hero-section-featuring-a-centered-circular-cut-out-element-designed-to-hold-a-circular-logo-the-circular-element-must-rotate-smoothly-slow-elegant-and-pause-rotation-on-hover-include-playful-bright-gradients-background-shapes-and-placeholder-call-to-action-buttons-use-css-animations-where-possible-and-keep-motion-subtle-professional",
+      "title": "Build the Home / Introduction page as the first-impression page with section-based scrolling (no internal tabs). Include a bold hero section featuring a centered circular cut-out element designed to hold a circular logo. The circular element must rotate smoothly (slow, elegant) and pause rotation on hover. Include playful bright gradients/background shapes and placeholder call-to-action buttons. Use CSS animations where possible and keep motion subtle/professional.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-combined-about-us-why-choose-us-page-with-a-cohesive-layout-that-alternates-text-and-visuals-across-sections-use-placeholder-icons-illustrations-and-copy-that-is-warm-reassuring-and-intelligent-highlighting-trust-philosophy-and-differentiation",
+      "title": "Build a combined About Us + Why Choose Us page with a cohesive layout that alternates text and visuals across sections. Use placeholder icons/illustrations and copy that is warm, reassuring, and intelligent, highlighting trust, philosophy, and differentiation.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-services-page-with-a-grid-card-based-layout-where-each-service-is-displayed-as-a-visual-card-using-placeholder-icons-soft-shadows-rounded-corners-and-hover-effects-structure-the-layout-and-code-so-services-can-be-easily-expanded-later-e-g-data-driven-rendering-from-an-in-code-list",
+      "title": "Build a Services page with a grid/card-based layout where each service is displayed as a visual card using placeholder icons, soft shadows, rounded corners, and hover effects. Structure the layout and code so services can be easily expanded later (e.g., data-driven rendering from an in-code list).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-contact-page-with-a-simple-clean-friendly-layout-including-an-html-contact-form-configured-to-be-netlify-forms-ready-if-possible-placeholder-contact-information-and-a-clear-friendly-cta-e-g-get-in-touch-or-start-a-conversation",
+      "title": "Build a Contact page with a simple, clean, friendly layout including: an HTML contact form configured to be Netlify-forms ready (if possible), placeholder contact information, and a clear friendly CTA (e.g., “Get in Touch” or “Start a Conversation”).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-site-is-responsive-for-desktop-tablet-and-mobile-uses-smooth-non-excessive-animations-and-uses-relative-paths-for-all-static-assets-use-placeholder-images-and-placeholder-text-only",
+      "title": "Ensure the site is responsive for desktop, tablet, and mobile, uses smooth (non-excessive) animations, and uses relative paths for all static assets. Use placeholder images and placeholder text only.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-do-not-implement-or-require-backend-functionality-the-site-must-function-as-a-static-build-with-no-server-dependencies",
+      "title": "Do not implement or require backend functionality; the site must function as a static build with no server dependencies.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-increase-the-size-of-the-rotating-circular-hero-element-on-the-home-page-so-it-visually-occupies-roughly-half-of-the-hero-section-page-height-on-desktop-while-remaining-responsive-and-not-causing-content-overflow-on-tablet-mobile",
+      "title": "Increase the size of the rotating circular hero element on the Home page so it visually occupies roughly half of the hero section/page height on desktop, while remaining responsive and not causing content overflow on tablet/mobile.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-rotating-circular-hero-logo-element-to-use-the-uploaded-image-file-blue-and-white-vintage-school-logo-png-and-ensure-the-square-png-is-perfectly-centered-inside-the-circular-area-with-a-true-circular-mask-no-visible-square-corners-no-overflow-and-no-unintended-cropping-across-desktop-tablet-mobile-breakpoints",
+      "title": "Update the Home page rotating circular hero/logo element to use the uploaded image file (\"Blue and White Vintage School Logo.png\") and ensure the square PNG is perfectly centered inside the circular area with a true circular mask (no visible square corners), no overflow, and no unintended cropping across desktop/tablet/mobile breakpoints.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-increase-the-size-of-the-home-page-rotating-circular-hero-logo-element-so-that-on-desktop-it-visually-occupies-clearly-more-than-half-of-the-hero-section-height-i-e-50-while-remaining-responsive-on-tablet-mobile-and-not-causing-layout-overflow-or-clipping",
+      "title": "Increase the size of the Home page rotating circular hero/logo element so that on desktop it visually occupies clearly more than half of the hero section height (i.e., >50%), while remaining responsive on tablet/mobile and not causing layout overflow or clipping.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create fully static, Netlify-ready website (HTML, CSS, vanilla JS) with clean, responsive layout and relative asset paths using placeholder content only",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement site-wide visual design system: bright but balanced colours/gradients, rounded shapes, friendly typography, generous spacing, subtle professional animations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Build Home page with bold hero, rotating circular cut-out element (slow spin, pause on hover), playful background shapes/gradients, and placeholder CTA buttons; section-based scrolling (no internal tabs)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create About Us + Why Choose Us combined page with alternating text/visual layout, icons/illustrations, and trust/philosophy messaging tone",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create Services page with grid/card-based service cards (icons, soft shadows, rounded corners) and hover effects; structured for easy expansion",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Create Contact page with clean layout, friendly CTA, placeholder contact info, and HTML contact form configured to be Netlify-forms ready",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement navigation: top nav links to all pages, sticky on scroll, and mobile hamburger menu",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Increase the rotating circular hero element size to occupy roughly half the page (significantly larger visual emphasis in the Home hero)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Ensure uploaded square PNG logo fits perfectly inside the circular hero/logo area (centered, circular crop/mask, no overflow or cut-off across responsive breakpoints)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Increase the rotating circular hero element to be bigger than half the page/hero height (greater visual emphasis) while staying responsive and avoiding overflow",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Build vibrant, child-friendly marketing site (Home, About, Services, Contact) with rotating hero element and sticky nav",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

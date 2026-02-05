@@ -1,2 +1,3 @@
-# build-vibrant-child-friendly-marketing-site-home-about-services-contact-with-rot
-Exported from Caffeine project: Build vibrant, child-friendly marketing site (Home, About, Services, Contact) with rotating hero element and sticky nav
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

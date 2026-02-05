@@ -1,0 +1,22 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no methods or logic.",
+  "feature_evidence.json": "Feature evidence report linking a hero‑logo resize request to affected files and components.",
+  "frontend-file-summaries.txt": "Text file containing prewritten summaries for all frontend source files.",
+  "frontend/index.css": "Tailwind base stylesheet defining global OKLCH variables, light/dark themes, and base element styling.",
+  "frontend/index.html": "HTML entry point loading the React app via main.tsx.",
+  "frontend/src/App.tsx": "Root component handling hash-based routing and rendering pages with navbar and footer.",
+  "frontend/src/components/ContactForm.tsx": "Netlify-compatible contact form with controlled inputs and simple submit handler.",
+  "frontend/src/components/Footer.tsx": "Gradient footer with attribution link and animated heart icon.",
+  "frontend/src/components/Navbar.tsx": "Sticky responsive navbar with scroll effects, desktop links, and mobile menu toggle.",
+  "frontend/src/components/ServiceCard.tsx": "Reusable service card showing an icon, title, description, and gradient accent.",
+  "frontend/src/hooks/useActor.ts": "Hook creating and caching authenticated or anonymous backend actors using React Query.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Context and hooks for managing Internet Identity auth state and client lifecycle.",
+  "frontend/src/index.css": "Sets Tailwind layers and defines extensive CSS variables for light and dark themes along with utility classes for global typography and custom components.",
+  "frontend/src/main.tsx": "Initializes React app with React Query and Internet Identity provider, rendering the main App component.",
+  "frontend/src/pages/AboutWhyPage.tsx": "Renders an About page with hero, story, and philosophy sections using images, gradients, and icon‑based feature blocks.",
+  "frontend/src/pages/ContactPage.tsx": "Displays a contact page with hero text, contact details, and an embedded ContactForm component.",
+  "frontend/src/pages/HomePage.tsx": "Implements the home page featuring a hero section with branding, navigation buttons, and animated elements, along with feature sections.",
+  "frontend/src/pages/ServicesPage.tsx": "Shows a programs/services page with a hero section, grid of ServiceCard items, and a CTA section.",
+  "frontend/tailwind.config.js": "Tailwind configuration enabling dark mode, custom colors, typography, animations, container settings, and extended theme options including brand colors and UI presets.",
+  "project_state.json": "Project state file defining site goals, architecture notes, and a list of existing features for a colorful Netlify-ready static website."
+}

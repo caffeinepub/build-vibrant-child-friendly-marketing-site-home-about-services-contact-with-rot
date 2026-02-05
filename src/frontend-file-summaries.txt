@@ -1,0 +1,14 @@
+{
+  "frontend/src/App.tsx": "Main app component with hash-based routing for static navigation between Home, About, Services, and Contact pages without backend dependencies.",
+  "frontend/src/components/Navbar.tsx": "Sticky navigation bar with desktop links, mobile hamburger menu, active page highlighting, and smooth scroll behavior.",
+  "frontend/src/components/Footer.tsx": "Simple footer component with copyright notice and caffeine.ai attribution link.",
+  "frontend/src/pages/HomePage.tsx": "Home page with hero section featuring the uploaded Dreamonomy Creative Academy logo as a large rotating circular element, gradient backgrounds, CTA buttons, and feature highlights with adjusted spacing.",
+  "frontend/src/pages/AboutWhyPage.tsx": "Combined About Us and Why Choose Us page with alternating text/visual sections, philosophy cards, and trust-building content.",
+  "frontend/src/pages/ServicesPage.tsx": "Services page displaying a responsive grid of service cards with icons, descriptions, and hover effects.",
+  "frontend/src/components/ServiceCard.tsx": "Reusable service card component with icon, title, description, and gradient styling.",
+  "frontend/src/pages/ContactPage.tsx": "Contact page with Netlify-ready form, placeholder contact information, and friendly CTA heading.",
+  "frontend/src/components/ContactForm.tsx": "Netlify Forms-compatible contact form component with name, email, phone, and message fields.",
+  "frontend/src/index.css": "Global styles with vibrant child-friendly OKLCH color system, custom animations including an enlarged rotating logo container (now >50% of hero height on desktop, scaling from 55vh to 70vh across breakpoints) with perfect circular mask and overflow-hidden, button/card utilities, and reduced-motion support.",
+  "frontend/tailwind.config.js": "Extended Tailwind configuration with brand colors, custom border radii, Poppins/Inter fonts, and animation utilities for the child-friendly design system.",
+  "frontend/src/main.tsx": "Application entry point with QueryClient provider only (removed InternetIdentity provider for static site)."
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "build_request",
+  "title": "Increase Home hero rotating logo element beyond half-page height",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "text": "Increase the size of the Home page rotating circular hero/logo element so that on desktop it visually occupies clearly more than half of the hero section height (i.e., >50%), while remaining responsive on tablet/mobile and not causing layout overflow or clipping.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "can you make the rotating element bigger than half the page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On desktop breakpoints, the rotating circular element renders larger than half of the hero section height (visually dominant and clearly >50%).",
+        "On tablet and mobile breakpoints, the rotating circular element scales down responsively (no horizontal scroll, no content overlap, and no element clipping).",
+        "The element remains perfectly circular with the existing circular mask behavior intact, and the rotation/pause-on-hover behavior continues to work."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not add or require backend functionality; the site must continue to function as a static build with no server dependencies.",
+    "Do not edit files under frontend/src/components/ui or other immutable paths listed in SYSTEM_CONTEXT."
+  ],
+  "nonGoals": [
+    "Changing the logo image asset or how it is cropped/masked beyond what is necessary to support the increased size.",
+    "Redesigning the overall Home hero layout or changing the site navigation/pages."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

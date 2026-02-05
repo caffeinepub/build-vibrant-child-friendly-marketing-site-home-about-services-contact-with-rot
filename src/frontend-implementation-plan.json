@@ -1,0 +1,28 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Enlarge Home hero rotating logo element while preserving responsiveness and behavior",
+  "requirements": [
+    {
+      "id": "REQ-11",
+      "summary": "Increase the Home hero rotating circular logo element to be visually >50% of the hero height on desktop while staying responsive and preventing overflow/clipping.",
+      "acceptanceCriteria": [
+        "On desktop breakpoints, the rotating circular element renders larger than half of the hero section height (visually dominant and clearly >50%).",
+        "On tablet and mobile breakpoints, the rotating circular element scales down responsively (no horizontal scroll, no content overlap, and no element clipping).",
+        "The element remains perfectly circular with the existing circular mask behavior intact, and the rotation/pause-on-hover behavior continues to work."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update the .rotating-logo-container sizing rules to increase its maximum size on desktop (e.g., raise the vh-based cap from ~45vh to >50vh, and adjust clamp values per breakpoint), while keeping max-width constraints for small screens to prevent horizontal scroll and preserving the circular mask via existing rounded-full/overflow-hidden styling."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Adjust the Home hero layout spacing around the rotating logo (if needed) to accommodate the larger circle without overlapping the headline/CTA and without triggering clipping within the hero section’s overflow-hidden container; keep the existing rotating-logo-container/rotating-logo class usage so rotation and pause-on-hover behavior remain intact."
+        }
+      ]
+    }
+  ]
+}
