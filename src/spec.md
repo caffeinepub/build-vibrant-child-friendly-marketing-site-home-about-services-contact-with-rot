@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the Services page’s generic/placeholder content with the provided DREAMONOMY “Our Learning Services” content and render it using a nested, section-based structure.
+**Goal:** Replace the “Why Choose Us” multi-card layouts with a single paragraph-style content box and display the user-provided “WHY CHOOSE US” copy verbatim (including headings and bullet lists).
 
 **Planned changes:**
-- Update `frontend/src/content/dreamonomyCopy.ts` to remove existing placeholder services hero/category/CTA copy and replace it with only the provided “SERVICES / Our Learning Services” structure (intro + all specified sections and bullet lists).
-- Update `frontend/src/pages/ServicesPage.tsx` to render the Services page from the new structured `dreamonomyCopy.services` content, replacing the current 6-card grid and the generic CTA section while keeping the existing styling approach and ensuring readability across screen sizes.
+- Update `frontend/src/content/dreamonomyCopy.ts` to replace the existing placeholder “Why Choose Us” content with the provided “WHY CHOOSE US” text, stored in a structured format that preserves headings and bullet lists verbatim.
+- Update `frontend/src/pages/HomePage.tsx` to remove the 3-card “Why Choose Us” grid and render one large content box styled like the existing “Message from the Founder” container, displaying the structured copy (headings + paragraphs + bullets) with no truncation on any breakpoint.
+- Update `frontend/src/pages/AboutWhyPage.tsx` to remove the grid-of-reasons “Why Choose Us” layout and render the same single “Message from the Founder”-style content box with the same structured copy, ensuring readable spacing and no truncation on any breakpoint.
 
-**User-visible outcome:** The Services page shows “Our Learning Services” followed by the full set of provided service sections (with clear headings and bullet lists), with no old service cards or generic CTA content.
+**User-visible outcome:** Visitors see a single “Why Choose Us” box (instead of multiple cards) on both the Home and About/Why pages, showing the full provided text with headings and bullet points clearly rendered on all devices.

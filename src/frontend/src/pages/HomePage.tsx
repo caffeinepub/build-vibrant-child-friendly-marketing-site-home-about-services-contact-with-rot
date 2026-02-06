@@ -1,6 +1,7 @@
-import { ArrowRight, Sparkles, Palette, Target, Code, Lightbulb, BookOpen, Users, Award } from 'lucide-react';
+import { ArrowRight, Sparkles, Palette, Target, Code, Lightbulb, BookOpen, Users } from 'lucide-react';
 import DecorativeAccents from '../components/DecorativeAccents';
 import ServiceCard from '../components/ServiceCard';
+import WhyChooseUsContentBox from '../components/WhyChooseUsContentBox';
 import { dreamonomyCopy } from '../content/dreamonomyCopy';
 
 type Page = 'home' | 'about' | 'services' | 'contact';
@@ -138,11 +139,13 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 dark:border-gray-700">
-              <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                {about.founder.message}
-              </p>
+              <div className="space-y-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                {about.founder.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
               <p className="text-right text-lg font-semibold text-gray-900 dark:text-white">
-                — {about.founder.signature}
+                {about.founder.signature}
               </p>
             </div>
           </div>
@@ -154,44 +157,21 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         <DecorativeAccents variant="section" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent">
-                {homepage.whyChooseUs.heading}
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              {homepage.whyChooseUs.subheading}
-            </p>
-          </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent">
+                  {homepage.whyChooseUs.heading}
+                </span>
+              </h2>
+              <p className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                {homepage.whyChooseUs.subtitle}
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {homepage.whyChooseUs.features.map((feature, index) => {
-              const icons = [Palette, Award, Users];
-              const colors = [
-                'from-brand-blue to-brand-purple',
-                'from-brand-purple to-brand-pink',
-                'from-brand-pink to-brand-orange',
-              ];
-              const Icon = icons[index];
-              
-              return (
-                <div
-                  key={index}
-                  className="feature-card group"
-                >
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${colors[index]} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              );
-            })}
+            <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 dark:border-gray-700">
+              <WhyChooseUsContentBox data={homepage.whyChooseUs} />
+            </div>
           </div>
         </div>
       </section>

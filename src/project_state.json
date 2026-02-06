@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 23,
-  "summary": "Update existing DREAMONOMY static marketing site by removing all AI-created placeholder text/tabs/headings/subheaders and replacing them strictly with user-provided content one section at a time; for the Homepage, place the provided HOMEPAGE copy directly under the rotating circular hero element; reorder homepage sections so Services is 2nd, Message from the Founder is 3rd, and Why Choose Us is 4th (at the end). Next content update in progress: replace the Services tab/page content with the user-provided “Our Learning Services” copy and its full structure (Core Academic Subjects K–10, Out-of-Syllabus & Interdisciplinary Learning, Responsible AI Education, Subject Journaling & Emotional Tracking, plus Personalised Growth & Mentorship Programs).",
+  "projectStateVersion": 29,
+  "summary": "Update existing DREAMONOMY static marketing site by removing all AI-created placeholder text/tabs/headings/subheaders and replacing them strictly with user-provided content one section at a time; ensure none of the user-provided text is truncated/cut off anywhere (add additional sections/blocks as needed to fit all provided content). Next content/layout update in progress: update the “Why Choose Us” section by removing the three existing blocks and rendering the user-provided Why Choose Us content in a single large paragraph-style box (styled like “Message from the Founder”).",
   "architectural_notes": [
     "Static multi-page site built with HTML/CSS/vanilla JS only; deployable on Netlify with no backend",
     "Contact form should be compatible with Netlify Forms",
@@ -15,7 +15,8 @@
     "Homepage content order requirement: Services section should come 2nd, Message from the Founder 3rd, and Why Choose Us 4th (at the end)."
   ],
   "known_issues": [
-    "Build/deploy is currently failing due to a Caffeine/internal configuration error (multiple failed build attempts)."
+    "Build/deploy is currently failing due to a Caffeine/internal configuration error (multiple failed build attempts).",
+    "Some user-provided content is currently being cut off/truncated on the site; must render all provided text in full (adding blocks/sections if needed)."
   ],
   "isFixRequest": false,
   "existing_features": [
@@ -282,6 +283,54 @@
         "REQ-33"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-centralized-copy-in-frontend-src-content-dreamonomycopy-ts-so-about-founder-contains-the-user-provided-message-from-the-founder-content-verbatim-with-no-edits-omissions-paraphrasing-or-added-punctuation-including-keeping-the-exact-gautam-arora-sign-off-store-the-message-in-a-structure-that-preserves-the-paragraph-breaks-e-g-an-ordered-paragraphs-array-rather-than-collapsing-it-into-a-single-string",
+      "title": "Update the centralized copy in `frontend/src/content/dreamonomyCopy.ts` so `about.founder` contains the user-provided “MESSAGE FROM THE FOUNDER” content verbatim, with no edits, omissions, paraphrasing, or added punctuation (including keeping the exact “GAUTAM ARORA” sign-off). Store the message in a structure that preserves the paragraph breaks (e.g., an ordered `paragraphs` array) rather than collapsing it into a single string.",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-frontend-src-pages-homepage-tsx-message-from-the-founder-section-to-render-the-founder-message-from-dreamonomycopy-exactly-as-stored-including-all-paragraphs-and-the-gautam-arora-sign-off-with-no-extra-quotation-marks-added-by-the-ui-and-no-truncation-cut-off-on-any-breakpoint",
+      "title": "Update `frontend/src/pages/HomePage.tsx` “Message from the Founder” section to render the founder message from `dreamonomyCopy` exactly as stored (including all paragraphs and the “GAUTAM ARORA” sign-off), with no extra quotation marks added by the UI and no truncation/cut-off on any breakpoint.",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-frontend-src-pages-aboutwhypage-tsx-message-from-the-founder-section-to-render-the-founder-message-from-dreamonomycopy-exactly-as-stored-including-all-paragraphs-and-the-gautam-arora-sign-off-removing-any-ui-added-quotation-marks-and-ensuring-no-truncation-cut-off",
+      "title": "Update `frontend/src/pages/AboutWhyPage.tsx` “Message from the Founder” section to render the founder message from `dreamonomyCopy` exactly as stored (including all paragraphs and the “GAUTAM ARORA” sign-off), removing any UI-added quotation marks and ensuring no truncation/cut-off.",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-centralized-copy-in-frontend-src-content-dreamonomycopy-ts-to-replace-the-existing-placeholder-why-choose-us-content-with-the-user-provided-why-choose-us-text-stored-in-a-structure-that-preserves-the-original-headings-and-bullet-lists-no-paraphrasing",
+      "title": "Update the centralized copy in `frontend/src/content/dreamonomyCopy.ts` to replace the existing placeholder “Why Choose Us” content with the user-provided “WHY CHOOSE US” text, stored in a structure that preserves the original headings and bullet lists (no paraphrasing).",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-home-page-frontend-src-pages-homepage-tsx-replace-the-current-why-choose-us-3-card-block-layout-with-a-single-large-paragraph-style-content-box-styled-consistently-with-the-existing-message-from-the-founder-box-rounded-container-padding-border-shadow-and-render-the-new-user-provided-why-choose-us-copy-inside-it-including-headings-and-bullet-lists",
+      "title": "On the Home page (`frontend/src/pages/HomePage.tsx`), replace the current “Why Choose Us” 3-card block layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box (rounded container, padding, border/shadow), and render the new user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-about-why-page-frontend-src-pages-aboutwhypage-tsx-replace-the-current-why-choose-us-grid-of-reasons-cards-layout-with-a-single-large-paragraph-style-content-box-styled-consistently-with-the-existing-message-from-the-founder-box-and-render-the-same-user-provided-why-choose-us-copy-inside-it-including-headings-and-bullet-lists",
+      "title": "On the About/Why page (`frontend/src/pages/AboutWhyPage.tsx`), replace the current “Why Choose Us” grid-of-reasons cards layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box, and render the same user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -384,6 +433,24 @@
     {
       "id": "AR-17",
       "summary": "Reorder homepage sections so Services is 2nd, Message from the Founder is 3rd, and Why Choose Us is 4th (placed at the end after Services and Founder message)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Ensure all user-provided copy is included verbatim with no truncation/cut-off; add additional sections/blocks as needed to display the full text clearly",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Homepage/About: Add/replace the “Message from the Founder” content with the user-provided text verbatim (including the GAUTAM ARORA sign-off) and ensure none of it is removed or truncated; add blocks/sections as needed to fit all text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Why Choose Us: remove the three existing blocks and render the section as a single large paragraph-style box like “Message from the Founder”, using the user-provided Why Choose Us text",
       "reqIds": [],
       "status": "pending"
     }

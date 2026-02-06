@@ -17,22 +17,53 @@ export const dreamonomyCopy = {
       ],
     },
     whyChooseUs: {
-      heading: 'Why Choose DREAMONOMY',
-      subheading: 'Discover what makes us unique',
-      features: [
-        {
-          title: 'Creative Excellence',
-          description: 'We bring innovative solutions and creative thinking to every project',
+      heading: 'WHY CHOOSE US',
+      subtitle: 'Education Designed by LEARNERS, NOT INSTITUTIONS',
+      content: {
+        expertGuidance: {
+          heading: 'Expert Guidance',
+          text: 'Our approach is based on the science of learning, memory, and psychology. Students are guided by trained psychologists and young professionals who understand attention issues, motivation challenges, and learning anxiety. Education here is driven by awareness, empathy, and intelligence.',
         },
-        {
-          title: 'Proven Results',
-          description: 'Track record of delivering exceptional outcomes for our clients',
+        dynamicFaculty: {
+          heading: 'Dynamic Teaching Faculty',
+          youngProfessionals: {
+            heading: 'Energy of Young Professionals (Ages 20–29)',
+            points: [
+              'Relatability: Connects with students at their life stage.',
+              'Active Learners: Brings passion and current methodologies.',
+              'Energy: Offers enthusiasm and modern perspectives.',
+            ],
+          },
+          seasonedExperts: {
+            heading: 'Wisdom of Seasoned Experts (Ages 29–60)',
+            points: [
+              'Mastery: Years of expertise and subject knowledge.',
+              'Emotional Resilience: Experienced in managing academic challenges.',
+              'Structured Mentorship: Provides time-tested guidance for success.',
+            ],
+          },
         },
-        {
-          title: 'Dedicated Support',
-          description: 'Our team is committed to your success every step of the way',
+        personalizedAttention: {
+          heading: 'Personalized Attention',
+          intro: 'We avoid one-size-fits-all teaching with:',
+          points: [
+            'Individual support',
+            'Strength-based encouragement',
+            'Continuous feedback',
+          ],
+          closing: 'Every child is seen, heard, and nurtured.',
         },
-      ],
+        beyondClassroom: {
+          heading: 'Education Beyond the Classroom',
+          intro: 'We prioritize:',
+          points: [
+            'Academic success',
+            'Mental health',
+            'Behavioral growth',
+          ],
+          closing: 'At DREAMONOMY, we foster thinkers, not just toppers. Education should ignite curiosity, encourage questions, and develop intelligence over dependency.',
+        },
+      },
     },
     cta: {
       heading: 'Ready to Begin Your Journey?',
@@ -225,31 +256,62 @@ export const dreamonomyCopy = {
       ],
     },
     whyChooseUs: {
-      heading: 'Why Choose DREAMONOMY',
-      subheading: 'What sets us apart',
-      reasons: [
-        {
-          title: 'Trusted Partner',
-          description: 'We build lasting relationships based on trust, transparency, and results',
+      heading: 'WHY CHOOSE US',
+      subtitle: 'Education Designed by LEARNERS, NOT INSTITUTIONS',
+      content: {
+        expertGuidance: {
+          heading: 'Expert Guidance',
+          text: 'Our approach is based on the science of learning, memory, and psychology. Students are guided by trained psychologists and young professionals who understand attention issues, motivation challenges, and learning anxiety. Education here is driven by awareness, empathy, and intelligence.',
         },
-        {
-          title: 'Proven Expertise',
-          description: 'Years of experience delivering successful outcomes across diverse projects',
+        dynamicFaculty: {
+          heading: 'Dynamic Teaching Faculty',
+          youngProfessionals: {
+            heading: 'Energy of Young Professionals (Ages 20–29)',
+            points: [
+              'Relatability: Connects with students at their life stage.',
+              'Active Learners: Brings passion and current methodologies.',
+              'Energy: Offers enthusiasm and modern perspectives.',
+            ],
+          },
+          seasonedExperts: {
+            heading: 'Wisdom of Seasoned Experts (Ages 29–60)',
+            points: [
+              'Mastery: Years of expertise and subject knowledge.',
+              'Emotional Resilience: Experienced in managing academic challenges.',
+              'Structured Mentorship: Provides time-tested guidance for success.',
+            ],
+          },
         },
-        {
-          title: 'Innovative Solutions',
-          description: 'We combine creativity with technology to create unique, effective solutions',
+        personalizedAttention: {
+          heading: 'Personalized Attention',
+          intro: 'We avoid one-size-fits-all teaching with:',
+          points: [
+            'Individual support',
+            'Strength-based encouragement',
+            'Continuous feedback',
+          ],
+          closing: 'Every child is seen, heard, and nurtured.',
         },
-        {
-          title: 'Dedicated Team',
-          description: 'Our passionate professionals are committed to your success',
+        beyondClassroom: {
+          heading: 'Education Beyond the Classroom',
+          intro: 'We prioritize:',
+          points: [
+            'Academic success',
+            'Mental health',
+            'Behavioral growth',
+          ],
+          closing: 'At DREAMONOMY, we foster thinkers, not just toppers. Education should ignite curiosity, encourage questions, and develop intelligence over dependency.',
         },
-      ],
+      },
     },
     founder: {
       heading: 'Message from the Founder',
-      message: 'At DREAMONOMY, we believe that every dream deserves the opportunity to become reality. Our commitment is to provide the tools, guidance, and support needed to transform vision into achievement. We are dedicated to fostering creativity, encouraging innovation, and delivering excellence in everything we do.',
-      signature: 'The DREAMONOMY Team',
+      paragraphs: [
+        'Our founder believes that today\'s performative examination systems diminish a child\'s thirst for knowledge and enthusiasm for learning. We advocate for an approach to education that complements traditional schools rather than opposes them. While social structures and expectations in schools are important, they can distort the learning process.',
+        'In our online learning environment, there are no social hierarchies or examination pressures. Every child receives individual care and attention, fostering an open and conversational space where all voices are valued equally.',
+        'My personal educational journey—from Delhi Public School to Doon, and eventually studying psychology, criminology, and sociology in Bangalore—has taught me what truly supports children\'s growth. This insight shapes the nurturing education I aim to provide.',
+      ],
+      signature: 'GAUTAM ARORA',
     },
   },
   

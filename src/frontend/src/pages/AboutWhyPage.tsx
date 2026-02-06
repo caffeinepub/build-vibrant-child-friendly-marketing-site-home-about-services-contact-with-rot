@@ -1,5 +1,6 @@
-import { Target, Heart, Lightbulb, Shield, Star, Rocket, Award } from 'lucide-react';
+import { Target, Heart, Lightbulb } from 'lucide-react';
 import DecorativeAccents from '../components/DecorativeAccents';
+import WhyChooseUsContentBox from '../components/WhyChooseUsContentBox';
 import { dreamonomyCopy } from '../content/dreamonomyCopy';
 
 export default function AboutWhyPage() {
@@ -106,43 +107,21 @@ export default function AboutWhyPage() {
         <DecorativeAccents variant="sparse" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-brand-orange via-brand-pink to-brand-purple bg-clip-text text-transparent">
-                {about.whyChooseUs.heading}
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              {about.whyChooseUs.subheading}
-            </p>
-          </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-brand-orange via-brand-pink to-brand-purple bg-clip-text text-transparent">
+                  {about.whyChooseUs.heading}
+                </span>
+              </h2>
+              <p className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                {about.whyChooseUs.subtitle}
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {about.whyChooseUs.reasons.map((item, index) => {
-              const icons = [Shield, Star, Rocket, Award];
-              const Icon = icons[index];
-              
-              return (
-                <div
-                  key={index}
-                  className="why-card group"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-brand-purple to-brand-pink flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 sm:p-12 border border-gray-200 dark:border-gray-700">
+              <WhyChooseUsContentBox data={about.whyChooseUs} />
+            </div>
           </div>
         </div>
       </section>
@@ -162,11 +141,13 @@ export default function AboutWhyPage() {
             </div>
             
             <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 sm:p-12 border border-gray-200 dark:border-gray-700">
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8 italic">
-                "{about.founder.message}"
-              </p>
-              <p className="text-right text-gray-900 dark:text-white font-semibold">
-                — {about.founder.signature}
+              <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                {about.founder.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+              <p className="text-right text-gray-900 dark:text-white font-semibold text-lg">
+                {about.founder.signature}
               </p>
             </div>
           </div>

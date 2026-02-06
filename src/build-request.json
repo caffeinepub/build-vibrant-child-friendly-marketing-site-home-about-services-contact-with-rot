@@ -1,52 +1,74 @@
 {
   "kind": "build_request",
-  "title": "Replace Services page content with provided DREAMONOMY “Our Learning Services” structure",
+  "title": "Replace Why Choose Us card blocks with single paragraph-style box using provided copy",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-32",
-      "text": "Update the centralized services copy in `frontend/src/content/dreamonomyCopy.ts` to remove the current placeholder/generic services content (hero title/subtitle, categories array, and CTA copy) and replace it with only the user-provided “SERVICES / Our Learning Services” content and its full structure: intro paragraph, (1) Core Academic Subjects (Elementary K–10) with subject list + “Our Approach” bullets + closing sentence, (2) Out-of-Syllabus & Interdisciplinary Learning (Our USP) with subject list + “These subjects help children” bullets, (3) Responsible AI Education for Children with 2-line positioning + curriculum focus bullets + outcome line, (4) Subject Journaling & Emotional Tracking with journal tracking bullets + “This allows us to” bullets, and “Personalised Growth & Mentorship Programs” with 3 program items + “We help students” bullets.",
+      "id": "REQ-37",
+      "text": "Update the centralized copy in `frontend/src/content/dreamonomyCopy.ts` to replace the existing placeholder “Why Choose Us” content with the user-provided “WHY CHOOSE US” text, stored in a structure that preserves the original headings and bullet lists (no paraphrasing).",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "now one by one lets change the information lets start by our services let me give you the informatioon for this tab:SERVICES"
+          "CAN YOU REMOVE THE THREE BLOCKS FROM WHY CHOOSE US AND MAKE IT A BIG PARAGRAPH BOX LIKE MESSAGE FROM THE FOUNDER .HERE IS THE TEXT FOR IT :**WHY CHOOSE US**  \n**Education Designed by LEARNERS, NOT INSTITUTIONS**\n\n**Expert Guidance**  \nOur approach is based on the science of learning, memory, and psychology. Students are guided by trained psychologists and young professionals who understand attention issues, motivation challenges, and learning anxiety. Education here is driven by awareness, empathy, and intelligence.\n\n**Dynamic Teaching Faculty**  \n**Energy of Young Professionals (Ages 20–29)**  \n- **Relatability**: Connects with students at their life stage.  \n- **Active Learners**: Brings passion and current methodologies.  \n- **Energy**: Offers enthusiasm and modern perspectives.  \n\n**Wisdom of Seasoned Experts (Ages 29–60)**  \n- **Mastery**: Years of expertise and subject knowledge.  \n- **Emotional Resilience**: Experienced in managing academic challenges.  \n- **Structured Mentorship**: Provides time-tested guidance for success.  \n\n**Personalized Attention**  \nWe avoid one-size-fits-all teaching with:  \n- Individual support  \n- Strength-based encouragement  \n- Continuous feedback  \n\nEvery child is seen, heard, and nurtured.\n\n**Education Beyond the Classroom**  \nWe prioritize:  \n- Academic success  \n- Mental health  \n- Behavioral growth  \n\nAt DREAMONOMY, we foster thinkers, not just toppers. Education should ignite curiosity, encourage questions, and develop intelligence over dependency."
         ]
       },
       "acceptanceCriteria": [
-        "`dreamonomyCopy.services` no longer contains the current placeholder category cards (e.g., “Creative Services”, “Strategic Planning”, etc.) or the generic CTA copy.",
-        "All Services page text in `dreamonomyCopy.services` matches the user-provided SERVICES content (no additional marketing claims or unrelated headings).",
-        "The services copy is structured so the Services page can render nested lists (sections -> bullet lists) without hard-coding content in the page component."
+        "`dreamonomyCopy` no longer contains the current placeholder Why Choose Us cards/features/reasons text for the sections being updated.",
+        "The new “Why Choose Us” copy is stored verbatim, including the exact capitalization, punctuation, headings, and bullet items as provided by the user.",
+        "The stored structure preserves bullet lists as lists (not flattened into a single sentence) so the UI can render them clearly."
       ]
     },
     {
-      "id": "REQ-33",
-      "text": "Update `frontend/src/pages/ServicesPage.tsx` to render the Services page using the new user-provided services structure from `dreamonomyCopy`, replacing the current generic 6-card grid and the generic CTA section. Keep the existing overall styling approach (responsive layout, current background treatment via `DecorativeAccents`, and existing typography/spacing conventions), but ensure the page displays all provided sections and bullet lists clearly and scannably on desktop/tablet/mobile.",
+      "id": "REQ-38",
+      "text": "On the Home page (`frontend/src/pages/HomePage.tsx`), replace the current “Why Choose Us” 3-card block layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box (rounded container, padding, border/shadow), and render the new user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
+        ],
+        "quotes": [
+          "REMOVE THE THREE BLOCKS FROM WHY CHOOSE US AND MAKE IT A BIG PARAGRAPH BOX LIKE MESSAGE FROM THE FOUNDER"
         ]
       },
       "acceptanceCriteria": [
-        "The Services page displays the following visible section headings in order: “Our Learning Services”, “Core Academic Subjects (Elementary K–10)”, “Out-of-Syllabus & Interdisciplinary Learning (Our USP)”, “Responsible AI Education for Children”, “Subject Journaling & Emotional Tracking”, and “Personalised Growth & Mentorship Programs”.",
-        "All bullet lists from the user-provided content are rendered as readable lists (not collapsed into a single paragraph).",
-        "The old generic service-card grid and the old CTA section (“Need Help Choosing?” / “Get Personalized Recommendations”) are no longer shown.",
-        "No backend calls are introduced; the Services page remains fully static and works without server dependencies."
+        "The Home page “Why Choose Us” section no longer renders a grid of three feature cards.",
+        "The Home page “Why Choose Us” section renders exactly one primary content container (a single box) that visually matches the “Message from the Founder” container styling.",
+        "Inside the box, the user-provided text is fully visible on desktop/tablet/mobile with no truncation/cut-off, and bullet points render as a list.",
+        "No extra AI-created headings/subheadings are added beyond what the user provided."
+      ]
+    },
+    {
+      "id": "REQ-39",
+      "text": "On the About/Why page (`frontend/src/pages/AboutWhyPage.tsx`), replace the current “Why Choose Us” grid-of-reasons cards layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box, and render the same user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "MAKE IT A BIG PARAGRAPH BOX LIKE MESSAGE FROM THE FOUNDER"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The About/Why page “Why Choose Us” section no longer renders a grid of multiple reason cards.",
+        "The About/Why page “Why Choose Us” section renders exactly one primary content container (a single box) consistent with the “Message from the Founder” container styling on that page.",
+        "The complete provided Why Choose Us content (headings + paragraphs + bullets) is rendered with readable spacing and no truncation at any breakpoint."
       ]
     }
   ],
   "constraints": [
-    "Frontend only; do not add backend functionality (site must remain fully static).",
-    "Do not edit any files under `frontend/src/components/ui` or other `frontend.immutablePaths` listed in SYSTEM_CONTEXT.",
-    "Use English for all user-facing text; only the user-provided SERVICES copy should appear on the Services page (no extra placeholder text)."
+    "Do not implement or require backend functionality; the site must remain fully static.",
+    "Do not edit any files under `frontend/src/components/ui` or other immutable paths listed in SYSTEM_CONTEXT.",
+    "All user-provided “Why Choose Us” text must be displayed verbatim (no paraphrasing, omissions, or added marketing copy).",
+    "Ensure none of the user-provided content is truncated or cut off on any breakpoint."
   ],
   "nonGoals": [
-    "Changing the Home/About/Contact page copy in this build request.",
-    "Adding new navigation items or new pages.",
-    "Adding authentication, data persistence, or any dynamic backend-driven services content."
+    "Do not change the rotating logo hero element behavior or sizing.",
+    "Do not change the education-themed background system (`DecorativeAccents`) beyond what is necessary to accommodate the new single-box layout.",
+    "Do not add new pages or navigation items."
   ],
   "imageRequirements": {
     "required": [],

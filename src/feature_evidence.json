@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-centralized-services-copy-in-frontend-src-content-dreamonomycopy-ts-to-remove-the-current-placeholder-generic-services-content-hero-title-subtitle-categories-array-and-cta-copy-and-replace-it-with-only-the-user-provided-services-our-learning-services-content-and-its-full-structure-intro-paragraph-1-core-academic-subjects-elementary-k-10-with-subject-list-our-approach-bullets-closing-sentence-2-out-of-syllabus-interdisciplinary-learning-our-usp-with-subject-list-these-subjects-help-children-bullets-3-responsible-ai-education-for-children-with-2-line-positioning-curriculum-focus-bullets-outcome-line-4-subject-journaling-emotional-tracking-with-journal-tracking-bullets-this-allows-us-to-bullets-and-personalised-growth-mentorship-programs-with-3-program-items-we-help-students-bullets",
-      "featureTitle": "Update the centralized services copy in `frontend/src/content/dreamonomyCopy.ts` to remove the current placeholder/generic services content (hero title/subtitle, categories array, and CTA copy) and replace it with only the user-provided “SERVICES / Our Learning Services” content and its full structure: intro paragraph, (1) Core Academic Subjects (Elementary K–10) with subject list + “Our Approach” bullets + closing sentence, (2) Out-of-Syllabus & Interdisciplinary Learning (Our USP) with subject list + “These subjects help children” bullets, (3) Responsible AI Education for Children with 2-line positioning + curriculum focus bullets + outcome line, (4) Subject Journaling & Emotional Tracking with journal tracking bullets + “This allows us to” bullets, and “Personalised Growth & Mentorship Programs” with 3 program items + “We help students” bullets.",
+      "featureId": "feature-update-the-centralized-copy-in-frontend-src-content-dreamonomycopy-ts-to-replace-the-existing-placeholder-why-choose-us-content-with-the-user-provided-why-choose-us-text-stored-in-a-structure-that-preserves-the-original-headings-and-bullet-lists-no-paraphrasing",
+      "featureTitle": "Update the centralized copy in `frontend/src/content/dreamonomyCopy.ts` to replace the existing placeholder “Why Choose Us” content with the user-provided “WHY CHOOSE US” text, stored in a structure that preserves the original headings and bullet lists (no paraphrasing).",
       "files": [
         "frontend/src/content/dreamonomyCopy.ts"
       ],
@@ -15,15 +15,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-32"
+        "REQ-37"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-frontend-src-pages-servicespage-tsx-to-render-the-services-page-using-the-new-user-provided-services-structure-from-dreamonomycopy-replacing-the-current-generic-6-card-grid-and-the-generic-cta-section-keep-the-existing-overall-styling-approach-responsive-layout-current-background-treatment-via-decorativeaccents-and-existing-typography-spacing-conventions-but-ensure-the-page-displays-all-provided-sections-and-bullet-lists-clearly-and-scannably-on-desktop-tablet-mobile",
-      "featureTitle": "Update `frontend/src/pages/ServicesPage.tsx` to render the Services page using the new user-provided services structure from `dreamonomyCopy`, replacing the current generic 6-card grid and the generic CTA section. Keep the existing overall styling approach (responsive layout, current background treatment via `DecorativeAccents`, and existing typography/spacing conventions), but ensure the page displays all provided sections and bullet lists clearly and scannably on desktop/tablet/mobile.",
+      "featureId": "feature-on-the-home-page-frontend-src-pages-homepage-tsx-replace-the-current-why-choose-us-3-card-block-layout-with-a-single-large-paragraph-style-content-box-styled-consistently-with-the-existing-message-from-the-founder-box-rounded-container-padding-border-shadow-and-render-the-new-user-provided-why-choose-us-copy-inside-it-including-headings-and-bullet-lists",
+      "featureTitle": "On the Home page (`frontend/src/pages/HomePage.tsx`), replace the current “Why Choose Us” 3-card block layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box (rounded container, padding, border/shadow), and render the new user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
       "files": [
-        "frontend/src/pages/ServicesPage.tsx"
+        "frontend/src/components/WhyChooseUsContentBox.tsx",
+        "frontend/src/pages/HomePage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -33,7 +34,25 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-33"
+        "REQ-38"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-on-the-about-why-page-frontend-src-pages-aboutwhypage-tsx-replace-the-current-why-choose-us-grid-of-reasons-cards-layout-with-a-single-large-paragraph-style-content-box-styled-consistently-with-the-existing-message-from-the-founder-box-and-render-the-same-user-provided-why-choose-us-copy-inside-it-including-headings-and-bullet-lists",
+      "featureTitle": "On the About/Why page (`frontend/src/pages/AboutWhyPage.tsx`), replace the current “Why Choose Us” grid-of-reasons cards layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box, and render the same user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
+      "files": [
+        "frontend/src/pages/AboutWhyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-39"
       ],
       "confidence": "high"
     }

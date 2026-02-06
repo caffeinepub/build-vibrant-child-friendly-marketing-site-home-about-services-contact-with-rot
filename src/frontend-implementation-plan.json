@@ -1,38 +1,59 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace Services page content with DREAMONOMY “Our Learning Services” structure",
+  "title": "Replace Why Choose Us card grids with single paragraph-style box using provided copy",
   "requirements": [
     {
-      "id": "REQ-32",
-      "summary": "Replace placeholder services copy with the full user-provided “SERVICES / Our Learning Services” structured content in the centralized copy file.",
+      "id": "REQ-37",
+      "summary": "Replace placeholder “Why Choose Us” copy in centralized content with the user-provided text, preserving headings and bullet list structures verbatim.",
       "acceptanceCriteria": [
-        "`dreamonomyCopy.services` no longer contains the current placeholder category cards (e.g., “Creative Services”, “Strategic Planning”, etc.) or the generic CTA copy.",
-        "All Services page text in `dreamonomyCopy.services` matches the user-provided SERVICES content (no additional marketing claims or unrelated headings).",
-        "The services copy is structured so the Services page can render nested lists (sections -> bullet lists) without hard-coding content in the page component."
+        "`dreamonomyCopy` no longer contains the current placeholder Why Choose Us cards/features/reasons text for the sections being updated.",
+        "The new “Why Choose Us” copy is stored verbatim, including the exact capitalization, punctuation, headings, and bullet items as provided by the user.",
+        "The stored structure preserves bullet lists as lists (not flattened into a single sentence) so the UI can render them clearly."
       ],
       "file_operations": [
         {
           "path": "frontend/src/content/dreamonomyCopy.ts",
           "operation": "modify",
-          "description": "Remove the current generic services hero/title/subtitle, categories array, and CTA copy. Replace `dreamonomyCopy.services` with only the user-provided “SERVICES / Our Learning Services” content and its full nested structure so it can drive rendering: top-level heading/intro paragraph; sections for (1) Core Academic Subjects (Elementary K–10) including subject list + “Our Approach” bullets + closing sentence, (2) Out-of-Syllabus & Interdisciplinary Learning (Our USP) including subject list + “These subjects help children” bullets, (3) Responsible AI Education for Children including 2-line positioning + curriculum focus bullets + outcome line, (4) Subject Journaling & Emotional Tracking including journal tracking bullets + “This allows us to” bullets, and “Personalised Growth & Mentorship Programs” including 3 program items + “We help students” bullets. Ensure the object shape supports nested lists (e.g., arrays for bullets and sub-bullets) without requiring hard-coded page strings."
+          "description": "Update `homepage.whyChooseUs` and `about.whyChooseUs` to remove the placeholder card/reasons data and replace it with a structured representation of the provided “WHY CHOOSE US” content (headings, paragraphs, and bullet lists preserved verbatim so the UI can render lists as lists)."
         }
       ]
     },
     {
-      "id": "REQ-33",
-      "summary": "Update ServicesPage to render all provided sections and bullet lists from the new structured services copy, removing the old card grid and CTA section while keeping the existing styling approach and background treatment.",
+      "id": "REQ-38",
+      "summary": "Update Home page Why Choose Us section to render a single large paragraph-style content box matching the Message from the Founder styling, using the new structured copy with headings and bullet lists.",
       "acceptanceCriteria": [
-        "The Services page displays the following visible section headings in order: “Our Learning Services”, “Core Academic Subjects (Elementary K–10)”, “Out-of-Syllabus & Interdisciplinary Learning (Our USP)”, “Responsible AI Education for Children”, “Subject Journaling & Emotional Tracking”, and “Personalised Growth & Mentorship Programs”.",
-        "All bullet lists from the user-provided content are rendered as readable lists (not collapsed into a single paragraph).",
-        "The old generic service-card grid and the old CTA section (“Need Help Choosing?” / “Get Personalized Recommendations”) are no longer shown.",
-        "No backend calls are introduced; the Services page remains fully static and works without server dependencies."
+        "The Home page “Why Choose Us” section no longer renders a grid of three feature cards.",
+        "The Home page “Why Choose Us” section renders exactly one primary content container (a single box) that visually matches the “Message from the Founder” container styling.",
+        "Inside the box, the user-provided text is fully visible on desktop/tablet/mobile with no truncation/cut-off, and bullet points render as a list.",
+        "No extra AI-created headings/subheadings are added beyond what the user provided."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/ServicesPage.tsx",
+          "path": "frontend/src/components/WhyChooseUsContentBox.tsx",
+          "operation": "create",
+          "description": "Create a reusable renderer component for the structured “Why Choose Us” copy (render headings, paragraphs, and bullet lists with readable spacing, ensuring no truncation on any breakpoint)."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
           "operation": "modify",
-          "description": "Refactor the Services page to use the new `dreamonomyCopy.services` structure: render the hero with “Our Learning Services” and the intro paragraph; then render each required section heading in order with its associated paragraphs and bullet lists (including nested bullet groups like subject lists and “Our Approach”/“These subjects help children”/curriculum focus/journaling tracking/“This allows us to”/program items/“We help students”). Remove the existing 6-card grid that depends on `services.categories`, remove the icon mapping and `ServiceCard` usage, and remove the generic CTA section. Keep the existing overall layout conventions (responsive containers, typography/spacing) and continue using `DecorativeAccents` and existing background treatments; ensure lists are scannable on mobile/tablet/desktop and no backend/actor hooks are added."
+          "description": "Replace the existing “Why Choose Us” 3-card grid rendering with a single rounded/padded/bordered-shadowed container styled to match the existing “Message from the Founder” box, and render the new structured `homepage.whyChooseUs` content inside it using `WhyChooseUsContentBox`."
+        }
+      ]
+    },
+    {
+      "id": "REQ-39",
+      "summary": "Update About/Why page Why Choose Us section to render the same single large paragraph-style content box (matching the Message from the Founder styling) using the same structured copy.",
+      "acceptanceCriteria": [
+        "The About/Why page “Why Choose Us” section no longer renders a grid of multiple reason cards.",
+        "The About/Why page “Why Choose Us” section renders exactly one primary content container (a single box) consistent with the “Message from the Founder” container styling on that page.",
+        "The complete provided Why Choose Us content (headings + paragraphs + bullets) is rendered with readable spacing and no truncation at any breakpoint."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AboutWhyPage.tsx",
+          "operation": "modify",
+          "description": "Replace the existing “Why Choose Us” reasons grid with a single rounded/padded/bordered-shadowed container consistent with that page’s “Message from the Founder” box styling, and render the structured `about.whyChooseUs` content inside it using `WhyChooseUsContentBox`."
         }
       ]
     }
