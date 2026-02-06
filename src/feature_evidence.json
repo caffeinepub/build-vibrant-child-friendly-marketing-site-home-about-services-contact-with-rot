@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-centralized-copy-in-frontend-src-content-dreamonomycopy-ts-to-replace-the-existing-placeholder-why-choose-us-content-with-the-user-provided-why-choose-us-text-stored-in-a-structure-that-preserves-the-original-headings-and-bullet-lists-no-paraphrasing",
-      "featureTitle": "Update the centralized copy in `frontend/src/content/dreamonomyCopy.ts` to replace the existing placeholder “Why Choose Us” content with the user-provided “WHY CHOOSE US” text, stored in a structure that preserves the original headings and bullet lists (no paraphrasing).",
+      "featureId": "feature-rollback-the-frontend-to-the-last-known-working-step-version-so-the-full-dreamonomy-marketing-site-renders-again-home-about-why-services-contact-with-the-existing-navigation-footer-and-page-layouts-intact",
+      "featureTitle": "Rollback the frontend to the last known working step/version so the full DREAMONOMY marketing site renders again (Home, About/Why, Services, Contact) with the existing navigation, footer, and page layouts intact.",
       "files": [
-        "frontend/src/content/dreamonomyCopy.ts"
+        "frontend/src/App.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,16 +15,18 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-37"
+        "REQ-43"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-on-the-home-page-frontend-src-pages-homepage-tsx-replace-the-current-why-choose-us-3-card-block-layout-with-a-single-large-paragraph-style-content-box-styled-consistently-with-the-existing-message-from-the-founder-box-rounded-container-padding-border-shadow-and-render-the-new-user-provided-why-choose-us-copy-inside-it-including-headings-and-bullet-lists",
-      "featureTitle": "On the Home page (`frontend/src/pages/HomePage.tsx`), replace the current “Why Choose Us” 3-card block layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box (rounded container, padding, border/shadow), and render the new user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
+      "featureId": "feature-identify-and-revert-the-specific-change-s-introduced-in-the-latest-deployment-that-caused-the-site-to-disappear-break-e-g-routing-rendering-logic-missing-component-export-import-css-that-hides-the-app-root-and-ensure-the-project-builds-and-deploys-successfully-again",
+      "featureTitle": "Identify and revert the specific change(s) introduced in the latest deployment that caused the site to disappear/break (e.g., routing/rendering logic, missing component export/import, CSS that hides the app root), and ensure the project builds and deploys successfully again.",
       "files": [
-        "frontend/src/components/WhyChooseUsContentBox.tsx",
-        "frontend/src/pages/HomePage.tsx"
+        "frontend/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/components/ErrorBoundary.tsx",
+        "frontend/src/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -34,25 +36,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-38"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-on-the-about-why-page-frontend-src-pages-aboutwhypage-tsx-replace-the-current-why-choose-us-grid-of-reasons-cards-layout-with-a-single-large-paragraph-style-content-box-styled-consistently-with-the-existing-message-from-the-founder-box-and-render-the-same-user-provided-why-choose-us-copy-inside-it-including-headings-and-bullet-lists",
-      "featureTitle": "On the About/Why page (`frontend/src/pages/AboutWhyPage.tsx`), replace the current “Why Choose Us” grid-of-reasons cards layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box, and render the same user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
-      "files": [
-        "frontend/src/pages/AboutWhyPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-39"
+        "REQ-44"
       ],
       "confidence": "high"
     }

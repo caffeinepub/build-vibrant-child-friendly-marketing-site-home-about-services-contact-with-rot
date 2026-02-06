@@ -1,59 +1,72 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace Why Choose Us card grids with single paragraph-style box using provided copy",
+  "title": "Dreamonomy marketing site rollback and render recovery (frontend-only)",
   "requirements": [
     {
-      "id": "REQ-37",
-      "summary": "Replace placeholder “Why Choose Us” copy in centralized content with the user-provided text, preserving headings and bullet list structures verbatim.",
+      "id": "REQ-43",
+      "summary": "Restore the last working marketing-site render (Home, About/Why, Services, Contact) with existing navbar/footer/layout and working hash navigation.",
       "acceptanceCriteria": [
-        "`dreamonomyCopy` no longer contains the current placeholder Why Choose Us cards/features/reasons text for the sections being updated.",
-        "The new “Why Choose Us” copy is stored verbatim, including the exact capitalization, punctuation, headings, and bullet items as provided by the user.",
-        "The stored structure preserves bullet lists as lists (not flattened into a single sentence) so the UI can render them clearly."
+        "The deployed site loads successfully (no blank screen) and renders the Navbar + Footer and a page body on initial load.",
+        "All primary routes/pages (Home, About/Why, Services, Contact) are reachable via the existing navigation and render content.",
+        "No console errors prevent rendering (no uncaught runtime exceptions on page load)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/content/dreamonomyCopy.ts",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update `homepage.whyChooseUs` and `about.whyChooseUs` to remove the placeholder card/reasons data and replace it with a structured representation of the provided “WHY CHOOSE US” content (headings, paragraphs, and bullet lists preserved verbatim so the UI can render lists as lists)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-38",
-      "summary": "Update Home page Why Choose Us section to render a single large paragraph-style content box matching the Message from the Founder styling, using the new structured copy with headings and bullet lists.",
-      "acceptanceCriteria": [
-        "The Home page “Why Choose Us” section no longer renders a grid of three feature cards.",
-        "The Home page “Why Choose Us” section renders exactly one primary content container (a single box) that visually matches the “Message from the Founder” container styling.",
-        "Inside the box, the user-provided text is fully visible on desktop/tablet/mobile with no truncation/cut-off, and bullet points render as a list.",
-        "No extra AI-created headings/subheadings are added beyond what the user provided."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/WhyChooseUsContentBox.tsx",
-          "operation": "create",
-          "description": "Create a reusable renderer component for the structured “Why Choose Us” copy (render headings, paragraphs, and bullet lists with readable spacing, ensuring no truncation on any breakpoint)."
+          "description": "Harden hash-based navigation so the app always renders a page: validate/normalize the hash to a known route, default unknown hashes to Home, and add lightweight aliases for the About/Why route naming (e.g., map \"why\" to \"about\") while preserving the existing navbar/footer/page layout structure."
         },
         {
           "path": "frontend/src/pages/HomePage.tsx",
           "operation": "modify",
-          "description": "Replace the existing “Why Choose Us” 3-card grid rendering with a single rounded/padded/bordered-shadowed container styled to match the existing “Message from the Founder” box, and render the new structured `homepage.whyChooseUs` content inside it using `WhyChooseUsContentBox`."
+          "description": "Confirm the Home page remains renderable under the restored navigation (no reliance on missing props/assets), keeping existing layout and copy intact; only adjust imports/asset references if needed to match the last working static asset structure."
+        },
+        {
+          "path": "frontend/src/pages/AboutWhyPage.tsx",
+          "operation": "modify",
+          "description": "Confirm the About/Why page renders with its existing layout; only adjust asset references/defensive rendering if needed to avoid runtime failures and keep the page accessible via the restored hash navigation."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Confirm the Services page renders reliably (no runtime crashes from missing data or invalid maps), preserving existing layout/copy and ensuring it is reachable via the existing navbar navigation."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Confirm the Contact page renders reliably with the existing contact form and layout; only make minimal defensive adjustments if required to prevent blank-screen failures."
         }
       ]
     },
     {
-      "id": "REQ-39",
-      "summary": "Update About/Why page Why Choose Us section to render the same single large paragraph-style content box (matching the Message from the Founder styling) using the same structured copy.",
+      "id": "REQ-44",
+      "summary": "Revert/neutralize the breaking change(s) from the latest deployment that caused the site to disappear, ensuring the React app mounts visibly and hash navigation switches pages without blank screens.",
       "acceptanceCriteria": [
-        "The About/Why page “Why Choose Us” section no longer renders a grid of multiple reason cards.",
-        "The About/Why page “Why Choose Us” section renders exactly one primary content container (a single box) consistent with the “Message from the Founder” container styling on that page.",
-        "The complete provided Why Choose Us content (headings + paragraphs + bullets) is rendered with readable spacing and no truncation at any breakpoint."
+        "Frontend build completes successfully without errors.",
+        "The root React app mounts and displays visible content above the fold on desktop and mobile viewport sizes.",
+        "Hash-based navigation in the existing app shell works again (switching pages does not produce a blank screen)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/AboutWhyPage.tsx",
+          "path": "frontend/src/components/ErrorBoundary.tsx",
+          "operation": "create",
+          "description": "Add a simple React error boundary component to prevent a single rendering exception from blanking the entire app; it should show a minimal fallback UI while keeping Navbar/Footer visible."
+        },
+        {
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Replace the existing “Why Choose Us” reasons grid with a single rounded/padded/bordered-shadowed container consistent with that page’s “Message from the Founder” box styling, and render the structured `about.whyChooseUs` content inside it using `WhyChooseUsContentBox`."
+          "description": "Wrap the page body rendering with the new ErrorBoundary and add a final render fallback (e.g., if the selected page component fails to resolve) so the app never renders an empty <main> due to invalid route state."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Ensure global layout cannot collapse/hide the app root: add/confirm safe defaults for html/body/#root sizing and visibility so the mounted React tree is visible above the fold across common viewport sizes, without altering the existing site look beyond what is necessary for recovery."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Verify the HTML mount structure remains correct for Vite/React (root element present and script reference intact); only apply minimal corrections if the latest deployment modified the mount container or script tag in a way that would prevent mounting."
         }
       ]
     }

@@ -1,74 +1,54 @@
 {
   "kind": "build_request",
-  "title": "Replace Why Choose Us card blocks with single paragraph-style box using provided copy",
-  "priority": "normal",
+  "title": "Restore last working Dreamonomy site version after broken deployment",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-37",
-      "text": "Update the centralized copy in `frontend/src/content/dreamonomyCopy.ts` to replace the existing placeholder “Why Choose Us” content with the user-provided “WHY CHOOSE US” text, stored in a structure that preserves the original headings and bullet lists (no paraphrasing).",
+      "id": "REQ-43",
+      "text": "Rollback the frontend to the last known working step/version so the full DREAMONOMY marketing site renders again (Home, About/Why, Services, Contact) with the existing navigation, footer, and page layouts intact.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "CAN YOU REMOVE THE THREE BLOCKS FROM WHY CHOOSE US AND MAKE IT A BIG PARAGRAPH BOX LIKE MESSAGE FROM THE FOUNDER .HERE IS THE TEXT FOR IT :**WHY CHOOSE US**  \n**Education Designed by LEARNERS, NOT INSTITUTIONS**\n\n**Expert Guidance**  \nOur approach is based on the science of learning, memory, and psychology. Students are guided by trained psychologists and young professionals who understand attention issues, motivation challenges, and learning anxiety. Education here is driven by awareness, empathy, and intelligence.\n\n**Dynamic Teaching Faculty**  \n**Energy of Young Professionals (Ages 20–29)**  \n- **Relatability**: Connects with students at their life stage.  \n- **Active Learners**: Brings passion and current methodologies.  \n- **Energy**: Offers enthusiasm and modern perspectives.  \n\n**Wisdom of Seasoned Experts (Ages 29–60)**  \n- **Mastery**: Years of expertise and subject knowledge.  \n- **Emotional Resilience**: Experienced in managing academic challenges.  \n- **Structured Mentorship**: Provides time-tested guidance for success.  \n\n**Personalized Attention**  \nWe avoid one-size-fits-all teaching with:  \n- Individual support  \n- Strength-based encouragement  \n- Continuous feedback  \n\nEvery child is seen, heard, and nurtured.\n\n**Education Beyond the Classroom**  \nWe prioritize:  \n- Academic success  \n- Mental health  \n- Behavioral growth  \n\nAt DREAMONOMY, we foster thinkers, not just toppers. Education should ignite curiosity, encourage questions, and develop intelligence over dependency."
+          "NO NO NO WHOLE SITE IS GONE GO BACK TO LAST STEP PLEASE"
         ]
       },
       "acceptanceCriteria": [
-        "`dreamonomyCopy` no longer contains the current placeholder Why Choose Us cards/features/reasons text for the sections being updated.",
-        "The new “Why Choose Us” copy is stored verbatim, including the exact capitalization, punctuation, headings, and bullet items as provided by the user.",
-        "The stored structure preserves bullet lists as lists (not flattened into a single sentence) so the UI can render them clearly."
+        "The deployed site loads successfully (no blank screen) and renders the Navbar + Footer and a page body on initial load.",
+        "All primary routes/pages (Home, About/Why, Services, Contact) are reachable via the existing navigation and render content.",
+        "No console errors prevent rendering (no uncaught runtime exceptions on page load)."
       ]
     },
     {
-      "id": "REQ-38",
-      "text": "On the Home page (`frontend/src/pages/HomePage.tsx`), replace the current “Why Choose Us” 3-card block layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box (rounded container, padding, border/shadow), and render the new user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
+      "id": "REQ-44",
+      "text": "Identify and revert the specific change(s) introduced in the latest deployment that caused the site to disappear/break (e.g., routing/rendering logic, missing component export/import, CSS that hides the app root), and ensure the project builds and deploys successfully again.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "REMOVE THE THREE BLOCKS FROM WHY CHOOSE US AND MAKE IT A BIG PARAGRAPH BOX LIKE MESSAGE FROM THE FOUNDER"
+          "WHOLE SITE IS GONE"
         ]
       },
       "acceptanceCriteria": [
-        "The Home page “Why Choose Us” section no longer renders a grid of three feature cards.",
-        "The Home page “Why Choose Us” section renders exactly one primary content container (a single box) that visually matches the “Message from the Founder” container styling.",
-        "Inside the box, the user-provided text is fully visible on desktop/tablet/mobile with no truncation/cut-off, and bullet points render as a list.",
-        "No extra AI-created headings/subheadings are added beyond what the user provided."
-      ]
-    },
-    {
-      "id": "REQ-39",
-      "text": "On the About/Why page (`frontend/src/pages/AboutWhyPage.tsx`), replace the current “Why Choose Us” grid-of-reasons cards layout with a single large paragraph-style content box, styled consistently with the existing “Message from the Founder” box, and render the same user-provided “Why Choose Us” copy inside it (including headings and bullet lists).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "MAKE IT A BIG PARAGRAPH BOX LIKE MESSAGE FROM THE FOUNDER"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The About/Why page “Why Choose Us” section no longer renders a grid of multiple reason cards.",
-        "The About/Why page “Why Choose Us” section renders exactly one primary content container (a single box) consistent with the “Message from the Founder” container styling on that page.",
-        "The complete provided Why Choose Us content (headings + paragraphs + bullets) is rendered with readable spacing and no truncation at any breakpoint."
+        "Frontend build completes successfully without errors.",
+        "The root React app mounts and displays visible content above the fold on desktop and mobile viewport sizes.",
+        "Hash-based navigation in the existing app shell works again (switching pages does not produce a blank screen)."
       ]
     }
   ],
   "constraints": [
-    "Do not implement or require backend functionality; the site must remain fully static.",
-    "Do not edit any files under `frontend/src/components/ui` or other immutable paths listed in SYSTEM_CONTEXT.",
-    "All user-provided “Why Choose Us” text must be displayed verbatim (no paraphrasing, omissions, or added marketing copy).",
-    "Ensure none of the user-provided content is truncated or cut off on any breakpoint."
+    "Do not edit files under frontend/src/components/ui (read-only).",
+    "Do not edit immutable hook/bootstrap paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
+    "Keep the site fully static with no required backend functionality or server dependencies."
   ],
   "nonGoals": [
-    "Do not change the rotating logo hero element behavior or sizing.",
-    "Do not change the education-themed background system (`DecorativeAccents`) beyond what is necessary to accommodate the new single-box layout.",
-    "Do not add new pages or navigation items."
+    "Do not introduce new features or new pages as part of the rollback.",
+    "Do not change DREAMONOMY copy/content beyond what is necessary to restore the last working state.",
+    "Do not add or change authentication or backend logic."
   ],
   "imageRequirements": {
     "required": [],

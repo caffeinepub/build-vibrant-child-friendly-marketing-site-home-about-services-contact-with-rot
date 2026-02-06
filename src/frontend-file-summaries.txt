@@ -1,5 +1,5 @@
 {
-  "frontend/src/App.tsx": "Main app component with hash-based routing for static navigation between Home, About, Services, and Contact pages without backend dependencies.",
+  "frontend/src/App.tsx": "Main app component with hardened hash-based routing that validates and normalizes page navigation, includes error boundaries for robust rendering, and ensures the app always displays valid content.",
   "frontend/src/components/Navbar.tsx": "Navigation bar component with DREAMONOMY branding (logo and name), responsive mobile menu, and active page highlighting.",
   "frontend/src/components/Footer.tsx": "Simple footer component with DREAMONOMY copyright notice, removing the caffeine.ai attribution as requested.",
   "frontend/src/pages/HomePage.tsx": "Home page component displaying DREAMONOMY sections including Hero with rotating logo, Services grid, Message from the Founder, and Why Choose Us now rendered as a single paragraph-style box matching the founder message styling.",
@@ -8,10 +8,12 @@
   "frontend/src/components/ServiceCard.tsx": "Reusable service card component with icon, title, description, and gradient styling.",
   "frontend/src/pages/ContactPage.tsx": "Contact page component with DREAMONOMY-branded hero section, contact introduction, and integrated contact form, using content from dreamonomyCopy.",
   "frontend/src/components/ContactForm.tsx": "Netlify Forms-compatible contact form component with name, email, phone, and message fields.",
-  "frontend/src/index.css": "Global styles with OKLCH color system, custom animations, enlarged rotating logo container, simplified hero background classes, and education-themed decorative background layers using the new generated symbol assets with subtle opacity and responsive sizing.",
+  "frontend/src/index.css": "Global styles with OKLCH color system, custom animations, rotating logo container, education-themed decorative backgrounds, and critical layout rules ensuring html/body/#root are always visible and properly sized.",
   "frontend/tailwind.config.js": "Extended Tailwind configuration with brand colors, custom border radii, Poppins/Inter fonts, and animation utilities for the child-friendly design system.",
   "frontend/src/main.tsx": "Application entry point with QueryClient provider only (removed InternetIdentity provider for static site).",
   "frontend/src/components/DecorativeAccents.tsx": "Reusable component that renders education-themed background layers using static generated assets (scatter and tile patterns) with three variants (hero, section, sparse) and responsive opacity adjustments for light/dark modes.",
   "frontend/src/content/dreamonomyCopy.ts": "Central content repository containing all DREAMONOMY marketing copy with the \"Why Choose Us\" section restructured to store the user-provided content with headings, paragraphs, and bullet lists preserved verbatim for both homepage and about pages.",
-  "frontend/src/components/WhyChooseUsContentBox.tsx": "Reusable component that renders the structured \"Why Choose Us\" content with proper formatting for headings, paragraphs, and bullet lists, ensuring all content is visible without truncation at any breakpoint."
+  "frontend/src/components/WhyChooseUsContentBox.tsx": "Reusable component that renders the structured \"Why Choose Us\" content with proper formatting for headings, paragraphs, and bullet lists, ensuring all content is visible without truncation at any breakpoint.",
+  "frontend/src/components/ErrorBoundary.tsx": "React error boundary component that catches rendering errors and displays a fallback UI with a refresh option, preventing the entire app from crashing.",
+  "frontend/index.html": "HTML entry point with proper DOCTYPE, meta tags, and root element for React mounting with Vite script reference."
 }
