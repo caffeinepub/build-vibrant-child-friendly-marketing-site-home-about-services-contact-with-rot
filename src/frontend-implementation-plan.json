@@ -1,26 +1,38 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Enlarge Home hero rotating logo element while preserving responsiveness and behavior",
+  "title": "Replace Services page content with DREAMONOMY “Our Learning Services” structure",
   "requirements": [
     {
-      "id": "REQ-11",
-      "summary": "Increase the Home hero rotating circular logo element to be visually >50% of the hero height on desktop while staying responsive and preventing overflow/clipping.",
+      "id": "REQ-32",
+      "summary": "Replace placeholder services copy with the full user-provided “SERVICES / Our Learning Services” structured content in the centralized copy file.",
       "acceptanceCriteria": [
-        "On desktop breakpoints, the rotating circular element renders larger than half of the hero section height (visually dominant and clearly >50%).",
-        "On tablet and mobile breakpoints, the rotating circular element scales down responsively (no horizontal scroll, no content overlap, and no element clipping).",
-        "The element remains perfectly circular with the existing circular mask behavior intact, and the rotation/pause-on-hover behavior continues to work."
+        "`dreamonomyCopy.services` no longer contains the current placeholder category cards (e.g., “Creative Services”, “Strategic Planning”, etc.) or the generic CTA copy.",
+        "All Services page text in `dreamonomyCopy.services` matches the user-provided SERVICES content (no additional marketing claims or unrelated headings).",
+        "The services copy is structured so the Services page can render nested lists (sections -> bullet lists) without hard-coding content in the page component."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/index.css",
+          "path": "frontend/src/content/dreamonomyCopy.ts",
           "operation": "modify",
-          "description": "Update the .rotating-logo-container sizing rules to increase its maximum size on desktop (e.g., raise the vh-based cap from ~45vh to >50vh, and adjust clamp values per breakpoint), while keeping max-width constraints for small screens to prevent horizontal scroll and preserving the circular mask via existing rounded-full/overflow-hidden styling."
-        },
+          "description": "Remove the current generic services hero/title/subtitle, categories array, and CTA copy. Replace `dreamonomyCopy.services` with only the user-provided “SERVICES / Our Learning Services” content and its full nested structure so it can drive rendering: top-level heading/intro paragraph; sections for (1) Core Academic Subjects (Elementary K–10) including subject list + “Our Approach” bullets + closing sentence, (2) Out-of-Syllabus & Interdisciplinary Learning (Our USP) including subject list + “These subjects help children” bullets, (3) Responsible AI Education for Children including 2-line positioning + curriculum focus bullets + outcome line, (4) Subject Journaling & Emotional Tracking including journal tracking bullets + “This allows us to” bullets, and “Personalised Growth & Mentorship Programs” including 3 program items + “We help students” bullets. Ensure the object shape supports nested lists (e.g., arrays for bullets and sub-bullets) without requiring hard-coded page strings."
+        }
+      ]
+    },
+    {
+      "id": "REQ-33",
+      "summary": "Update ServicesPage to render all provided sections and bullet lists from the new structured services copy, removing the old card grid and CTA section while keeping the existing styling approach and background treatment.",
+      "acceptanceCriteria": [
+        "The Services page displays the following visible section headings in order: “Our Learning Services”, “Core Academic Subjects (Elementary K–10)”, “Out-of-Syllabus & Interdisciplinary Learning (Our USP)”, “Responsible AI Education for Children”, “Subject Journaling & Emotional Tracking”, and “Personalised Growth & Mentorship Programs”.",
+        "All bullet lists from the user-provided content are rendered as readable lists (not collapsed into a single paragraph).",
+        "The old generic service-card grid and the old CTA section (“Need Help Choosing?” / “Get Personalized Recommendations”) are no longer shown.",
+        "No backend calls are introduced; the Services page remains fully static and works without server dependencies."
+      ],
+      "file_operations": [
         {
-          "path": "frontend/src/pages/HomePage.tsx",
+          "path": "frontend/src/pages/ServicesPage.tsx",
           "operation": "modify",
-          "description": "Adjust the Home hero layout spacing around the rotating logo (if needed) to accommodate the larger circle without overlapping the headline/CTA and without triggering clipping within the hero section’s overflow-hidden container; keep the existing rotating-logo-container/rotating-logo class usage so rotation and pause-on-hover behavior remain intact."
+          "description": "Refactor the Services page to use the new `dreamonomyCopy.services` structure: render the hero with “Our Learning Services” and the intro paragraph; then render each required section heading in order with its associated paragraphs and bullet lists (including nested bullet groups like subject lists and “Our Approach”/“These subjects help children”/curriculum focus/journaling tracking/“This allows us to”/program items/“We help students”). Remove the existing 6-card grid that depends on `services.categories`, remove the icon mapping and `ServiceCard` usage, and remove the generic CTA section. Keep the existing overall layout conventions (responsive containers, typography/spacing) and continue using `DecorativeAccents` and existing background treatments; ensure lists are scannable on mobile/tablet/desktop and no backend/actor hooks are added."
         }
       ]
     }

@@ -1,94 +1,185 @@
-import ServiceCard from '../components/ServiceCard';
-import { BookOpen, Calculator, Globe, Palette, Music, Code } from 'lucide-react';
-
-const services = [
-  {
-    icon: BookOpen,
-    title: 'Reading & Writing',
-    description: 'Build strong literacy skills through engaging stories, creative writing exercises, and personalized reading programs.',
-    color: 'from-brand-blue to-brand-purple',
-  },
-  {
-    icon: Calculator,
-    title: 'Mathematics',
-    description: 'Master math concepts from basic arithmetic to advanced problem-solving with interactive lessons and real-world applications.',
-    color: 'from-brand-purple to-brand-pink',
-  },
-  {
-    icon: Globe,
-    title: 'Science & Discovery',
-    description: 'Explore the wonders of science through hands-on experiments, virtual labs, and fascinating discoveries.',
-    color: 'from-brand-pink to-brand-orange',
-  },
-  {
-    icon: Palette,
-    title: 'Creative Arts',
-    description: 'Express creativity through art, design, and visual storytelling while developing fine motor skills and imagination.',
-    color: 'from-brand-orange to-brand-yellow',
-  },
-  {
-    icon: Music,
-    title: 'Music & Rhythm',
-    description: 'Discover the joy of music with lessons in rhythm, melody, and musical expression for all skill levels.',
-    color: 'from-brand-yellow to-brand-orange',
-  },
-  {
-    icon: Code,
-    title: 'Coding & Technology',
-    description: 'Learn programming fundamentals and computational thinking through fun, age-appropriate coding challenges.',
-    color: 'from-brand-blue to-brand-purple',
-  },
-];
+import DecorativeAccents from '../components/DecorativeAccents';
+import { dreamonomyCopy } from '../content/dreamonomyCopy';
 
 export default function ServicesPage() {
+  const { services } = dreamonomyCopy;
+  
   return (
     <div className="pt-16 sm:pt-20">
       {/* Hero Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-brand-orange/20 via-brand-pink/20 to-brand-purple/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 sm:py-24 hero-bg-simple overflow-hidden">
+        <DecorativeAccents variant="section" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gray-900 dark:text-white">Our</span>{' '}
               <span className="bg-gradient-to-r from-brand-orange via-brand-pink to-brand-purple bg-clip-text text-transparent">
-                Programs
+                {services.hero.title}
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-              Comprehensive learning programs designed to help every child excel in their educational journey
+              {services.hero.intro}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-16 sm:py-24 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <ServiceCard key={index} {...service} />
+      {/* Services Content */}
+      <section className="relative py-16 sm:py-24 bg-white dark:bg-gray-900 overflow-hidden">
+        <DecorativeAccents variant="sparse" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-5xl mx-auto space-y-16">
+            {services.sections.map((section, index) => (
+              <div key={section.id} className="space-y-6">
+                {/* Section Title */}
+                <h2 className="text-3xl sm:text-4xl font-bold">
+                  <span className="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent">
+                    {index + 1}. {section.title}
+                  </span>
+                </h2>
+
+                {/* Core Academic Subjects */}
+                {section.id === 'core-academic' && (
+                  <>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {section.intro}
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                      {section.subjects?.map((subject, idx) => (
+                        <li key={idx} className="leading-relaxed">{subject}</li>
+                      ))}
+                    </ul>
+                    {section.approach && (
+                      <div className="mt-6">
+                        <p className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                          {section.approach.heading}
+                        </p>
+                        <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                          {section.approach.points.map((point, idx) => (
+                            <li key={idx} className="leading-relaxed">{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {section.closing && (
+                      <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
+                        {section.closing}
+                      </p>
+                    )}
+                  </>
+                )}
+
+                {/* Interdisciplinary Learning */}
+                {section.id === 'interdisciplinary' && (
+                  <>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {section.intro}
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                      {section.subjects?.map((subject, idx) => (
+                        <li key={idx} className="leading-relaxed">{subject}</li>
+                      ))}
+                    </ul>
+                    {section.benefits && (
+                      <div className="mt-6">
+                        <p className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                          {section.benefits.heading}
+                        </p>
+                        <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                          {section.benefits.points.map((point, idx) => (
+                            <li key={idx} className="leading-relaxed">{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </>
+                )}
+
+                {/* AI Education */}
+                {section.id === 'ai-education' && (
+                  <>
+                    {section.positioning?.map((line, idx) => (
+                      <p key={idx} className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        {line}
+                      </p>
+                    ))}
+                    {section.curriculum && (
+                      <div className="mt-6">
+                        <p className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                          {section.curriculum.heading}
+                        </p>
+                        <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                          {section.curriculum.points.map((point, idx) => (
+                            <li key={idx} className="leading-relaxed">{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {section.outcome && (
+                      <p className="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-4">
+                        {section.outcome}
+                      </p>
+                    )}
+                  </>
+                )}
+
+                {/* Journaling */}
+                {section.id === 'journaling' && (
+                  <>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {section.intro}
+                    </p>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {section.description}
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                      {section.tracking?.map((item, idx) => (
+                        <li key={idx} className="leading-relaxed">{item}</li>
+                      ))}
+                    </ul>
+                    {section.benefits && (
+                      <div className="mt-6">
+                        <p className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                          {section.benefits.heading}
+                        </p>
+                        <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                          {section.benefits.points.map((point, idx) => (
+                            <li key={idx} className="leading-relaxed">{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </>
+                )}
+
+                {/* Mentorship */}
+                {section.id === 'mentorship' && (
+                  <>
+                    <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {section.intro}
+                    </p>
+                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                      {section.programs?.map((program, idx) => (
+                        <li key={idx} className="leading-relaxed">{program}</li>
+                      ))}
+                    </ul>
+                    {section.careerGuidance && (
+                      <div className="mt-6">
+                        <p className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                          {section.careerGuidance.heading}
+                        </p>
+                        <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
+                          {section.careerGuidance.points.map((point, idx) => (
+                            <li key={idx} className="leading-relaxed">{point}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-brand-purple/10 via-brand-pink/10 to-brand-orange/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent">
-                Not Sure Where to Start?
-              </span>
-            </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-              Our team is here to help you find the perfect program for your child's unique needs and interests
-            </p>
-            <a
-              href="#contact"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              Get Personalized Recommendations
-            </a>
           </div>
         </div>
       </section>

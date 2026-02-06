@@ -1,25 +1,35 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-05T16:59:13.191Z",
+  "generatedAt": "2026-02-06T06:00:38.093Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-11",
-        "summary": "Increase the size of the Home page rotating circular hero/logo element so that on desktop it visually occupies clearly more than half of the hero section height (i.e., >50%), while remaining responsive on tablet/mobile and not causing layout overflow or clipping.",
+        "id": "REQ-32",
+        "summary": "Update the centralized services copy in `frontend/src/content/dreamonomyCopy.ts` to remove the current placeholder/generic services content (hero title/subtitle, categories array, and CTA copy) and replace it with only the user-provided “SERVICES / Our Learning Services” content and its full structure: intro paragraph, (1) Core Academic Subjects (Elementary K–10) with subject list + “Our Approach” bullets + closing sentence, (2) Out-of-Syllabus & Interdisciplinary Learning (Our USP) with subject list + “These subjects help children” bullets, (3) Responsible AI Education for Children with 2-line positioning + curriculum focus bullets + outcome line, (4) Subject Journaling & Emotional Tracking with journal tracking bullets + “This allows us to” bullets, and “Personalised Growth & Mentorship Programs” with 3 program items + “We help students” bullets.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/src/pages/HomePage.tsx"
+          "frontend/src/content/dreamonomyCopy.ts"
         ],
         "matchedFiles": [
-          "frontend/src/index.css"
+          "frontend/src/content/dreamonomyCopy.ts"
+        ]
+      },
+      {
+        "id": "REQ-33",
+        "summary": "Update `frontend/src/pages/ServicesPage.tsx` to render the Services page using the new user-provided services structure from `dreamonomyCopy`, replacing the current generic 6-card grid and the generic CTA section. Keep the existing overall styling approach (responsive layout, current background treatment via `DecorativeAccents`, and existing typography/spacing conventions), but ensure the page displays all provided sections and bullet lists clearly and scannably on desktop/tablet/mobile.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ServicesPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ServicesPage.tsx"
         ]
       }
     ]
@@ -29,7 +39,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/index.css",
+    "frontend/src/content/dreamonomyCopy.ts",
+    "frontend/src/pages/ServicesPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { dreamonomyCopy } from '../content/dreamonomyCopy';
 
 type Page = 'home' | 'about' | 'services' | 'contact';
 
@@ -49,10 +50,10 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             className="flex items-center space-x-2 group"
           >
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-brand-orange via-brand-pink to-brand-purple flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-              <span className="text-white font-bold text-lg sm:text-xl">L</span>
+              <span className="text-white font-bold text-lg sm:text-xl">D</span>
             </div>
             <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-brand-orange via-brand-pink to-brand-purple bg-clip-text text-transparent">
-              LearnHub
+              {dreamonomyCopy.brand.name}
             </span>
           </button>
 

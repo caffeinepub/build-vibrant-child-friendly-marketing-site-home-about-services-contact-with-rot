@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-increase-the-size-of-the-home-page-rotating-circular-hero-logo-element-so-that-on-desktop-it-visually-occupies-clearly-more-than-half-of-the-hero-section-height-i-e-50-while-remaining-responsive-on-tablet-mobile-and-not-causing-layout-overflow-or-clipping",
-      "featureTitle": "Increase the size of the Home page rotating circular hero/logo element so that on desktop it visually occupies clearly more than half of the hero section height (i.e., >50%), while remaining responsive on tablet/mobile and not causing layout overflow or clipping.",
+      "featureId": "feature-update-the-centralized-services-copy-in-frontend-src-content-dreamonomycopy-ts-to-remove-the-current-placeholder-generic-services-content-hero-title-subtitle-categories-array-and-cta-copy-and-replace-it-with-only-the-user-provided-services-our-learning-services-content-and-its-full-structure-intro-paragraph-1-core-academic-subjects-elementary-k-10-with-subject-list-our-approach-bullets-closing-sentence-2-out-of-syllabus-interdisciplinary-learning-our-usp-with-subject-list-these-subjects-help-children-bullets-3-responsible-ai-education-for-children-with-2-line-positioning-curriculum-focus-bullets-outcome-line-4-subject-journaling-emotional-tracking-with-journal-tracking-bullets-this-allows-us-to-bullets-and-personalised-growth-mentorship-programs-with-3-program-items-we-help-students-bullets",
+      "featureTitle": "Update the centralized services copy in `frontend/src/content/dreamonomyCopy.ts` to remove the current placeholder/generic services content (hero title/subtitle, categories array, and CTA copy) and replace it with only the user-provided “SERVICES / Our Learning Services” content and its full structure: intro paragraph, (1) Core Academic Subjects (Elementary K–10) with subject list + “Our Approach” bullets + closing sentence, (2) Out-of-Syllabus & Interdisciplinary Learning (Our USP) with subject list + “These subjects help children” bullets, (3) Responsible AI Education for Children with 2-line positioning + curriculum focus bullets + outcome line, (4) Subject Journaling & Emotional Tracking with journal tracking bullets + “This allows us to” bullets, and “Personalised Growth & Mentorship Programs” with 3 program items + “We help students” bullets.",
       "files": [
-        "frontend/src/index.css"
+        "frontend/src/content/dreamonomyCopy.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,7 +15,25 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-11"
+        "REQ-32"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-frontend-src-pages-servicespage-tsx-to-render-the-services-page-using-the-new-user-provided-services-structure-from-dreamonomycopy-replacing-the-current-generic-6-card-grid-and-the-generic-cta-section-keep-the-existing-overall-styling-approach-responsive-layout-current-background-treatment-via-decorativeaccents-and-existing-typography-spacing-conventions-but-ensure-the-page-displays-all-provided-sections-and-bullet-lists-clearly-and-scannably-on-desktop-tablet-mobile",
+      "featureTitle": "Update `frontend/src/pages/ServicesPage.tsx` to render the Services page using the new user-provided services structure from `dreamonomyCopy`, replacing the current generic 6-card grid and the generic CTA section. Keep the existing overall styling approach (responsive layout, current background treatment via `DecorativeAccents`, and existing typography/spacing conventions), but ensure the page displays all provided sections and bullet lists clearly and scannably on desktop/tablet/mobile.",
+      "files": [
+        "frontend/src/pages/ServicesPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-33"
       ],
       "confidence": "high"
     }

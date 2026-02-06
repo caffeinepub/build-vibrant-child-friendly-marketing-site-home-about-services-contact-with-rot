@@ -1,16 +1,22 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 9,
-  "summary": "Build a colourful, child-friendly yet professional, Netlify-ready static website inspired by cuemath.com using HTML/CSS/vanilla JS, with 4 core pages (Home, About/Why Choose Us, Services, Contact), smooth subtle animations, and a rotating circular hero element.",
+  "projectStateVersion": 23,
+  "summary": "Update existing DREAMONOMY static marketing site by removing all AI-created placeholder text/tabs/headings/subheaders and replacing them strictly with user-provided content one section at a time; for the Homepage, place the provided HOMEPAGE copy directly under the rotating circular hero element; reorder homepage sections so Services is 2nd, Message from the Founder is 3rd, and Why Choose Us is 4th (at the end). Next content update in progress: replace the Services tab/page content with the user-provided “Our Learning Services” copy and its full structure (Core Academic Subjects K–10, Out-of-Syllabus & Interdisciplinary Learning, Responsible AI Education, Subject Journaling & Emotional Tracking, plus Personalised Growth & Mentorship Programs).",
   "architectural_notes": [
     "Static multi-page site built with HTML/CSS/vanilla JS only; deployable on Netlify with no backend",
-    "Use relative paths for assets; placeholder images/text only",
     "Contact form should be compatible with Netlify Forms",
-    "Home hero: rotating circular element should be scaled up to approximately half-page size while maintaining smooth rotation and hover-pause behavior.",
     "Logo in circular hero element must support square PNG upload: center it and apply circular mask/crop (e.g., border-radius:50% and object-fit:cover/contain) to prevent overflow/cut-off at all sizes.",
-    "Home hero: rotating circular element should be bigger than half-page/hero height on desktop while remaining responsive and not causing overflow on tablet/mobile."
+    "Home hero: rotating circular element should be bigger than half-page/hero height on desktop while remaining responsive and not causing overflow on tablet/mobile.",
+    "Background redesign: remove existing background treatment and replace with a subtle, non-distracting scattered pattern of educational symbols/letters across languages (English/Japanese/Chinese/Hindi/Tamil) and subjects (math/physics/chemistry/biology), kept lightweight and responsive across all pages.",
+    "Content direction change: remove prior/placeholder text and use only the user-supplied DREAMONOMY copy for Homepage + sections (Services, Why Choose Us, Our Philosophy optional, Founder message).",
+    "Scope clarification: do not rebuild from scratch; keep the existing created site/design and only add/replace the site copy with the user-provided DREAMONOMY text.",
+    "Content placement requirement: the provided HOMEPAGE text must appear under the rotating circular hero element on the Home page (no AI-created headings/subheaders/tabs).",
+    "Navbar branding change: top-left navbar should display only the user-provided logo (remove/replacing any existing text + logo).",
+    "Homepage content order requirement: Services section should come 2nd, Message from the Founder 3rd, and Why Choose Us 4th (at the end)."
   ],
-  "known_issues": [],
+  "known_issues": [
+    "Build/deploy is currently failing due to a Caffeine/internal configuration error (multiple failed build attempts)."
+  ],
   "isFixRequest": false,
   "existing_features": [
     {
@@ -100,6 +106,182 @@
         "REQ-11"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-multi-color-gradient-hero-section-backgrounds-with-a-simpler-cleaner-background-treatment-across-all-pages-home-about-why-choose-us-services-contact-keeping-the-design-child-friendly-but-less-visually-busy",
+      "title": "Replace the current multi-color gradient hero/section backgrounds with a simpler, cleaner background treatment across all pages (Home, About/Why Choose Us, Services, Contact), keeping the design child-friendly but less visually busy.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-subtle-scattered-decorative-background-elements-derived-from-the-user-provided-logo-image-assets-blue-and-white-vintage-school-logo-png-and-place-them-sparingly-throughout-page-sections-not-just-the-home-hero",
+      "title": "Add subtle, scattered decorative background elements derived from the user-provided logo image (\"/assets/Blue and White Vintage School Logo.png\") and place them sparingly throughout page sections (not just the Home hero).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-hero-background-to-remove-the-existing-blob-overlay-image-currently-assets-generated-blob-shapes-set-dim-1600x900-png-and-use-the-new-logo-derived-decorative-elements-instead-while-keeping-the-rotating-circular-logo-hero-element-unchanged",
+      "title": "Update the Home page hero background to remove the existing blob overlay image (currently \"/assets/generated/blob-shapes-set.dim_1600x900.png\") and use the new logo-derived decorative elements instead, while keeping the rotating circular logo hero element unchanged.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-current-logo-derived-decorative-background-accents-and-replace-them-with-an-education-themed-background-layer-that-uses-scattered-visuals-including-math-symbols-english-letters-japanese-letters-chinese-letters-hindi-alphabet-letters-tamil-letters-physics-symbols-letters-chemistry-letters-bonds-equations-and-biology-symbols-names-equations",
+      "title": "Remove the current logo-derived decorative background accents and replace them with an education-themed background layer that uses scattered visuals including: math symbols, English letters, Japanese letters, Chinese letters, Hindi alphabet/letters, Tamil letters, physics symbols/letters, chemistry letters/bonds/equations, and biology symbols/names/equations.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-new-education-themed-background-layer-using-static-assets-in-frontend-public-assets-generated-and-apply-it-consistently-to-the-sections-that-currently-use-decorative-accents-including-hero-sections-that-currently-use-the-hero-bg-simple-treatment",
+      "title": "Implement the new education-themed background layer using static assets in frontend/public/assets/generated and apply it consistently to the sections that currently use decorative accents (including hero sections that currently use the \"hero-bg-simple\" treatment).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-existing-placeholder-previous-marketing-copy-and-branding-across-the-entire-frontend-and-replace-it-with-the-user-uploaded-dreamonomy-content-only-including-replacing-any-remaining-learnhub-naming",
+      "title": "Remove all existing placeholder/previous marketing copy and branding across the entire frontend and replace it with the user-uploaded DREAMONOMY content only (including replacing any remaining “LearnHub” naming).",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-frontend-src-pages-homepage-tsx-to-use-only-the-uploaded-homepage-text-for-the-hero-intro-content-including-dreamonomy-positioning-k-12-lifelong-learning-psychology-driven-teaching-real-world-disciplines-responsible-ai",
+      "title": "Update the Home page (frontend/src/pages/HomePage.tsx) to use only the uploaded HOMEPAGE text for the hero/intro content, including DREAMONOMY positioning (K–12, lifelong learning, psychology-driven teaching, real-world disciplines, responsible AI).",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-services-page-frontend-src-pages-servicespage-tsx-to-reflect-the-uploaded-tab-1-services-content-only-replacing-the-current-generic-service-card-list-with-a-structure-that-matches-the-provided-categories-and-subpoints",
+      "title": "Update the Services page (frontend/src/pages/ServicesPage.tsx) to reflect the uploaded “TAB 1: SERVICES” content only, replacing the current generic service-card list with a structure that matches the provided categories and subpoints.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-about-why-choose-us-page-frontend-src-pages-aboutwhypage-tsx-so-it-contains-only-the-uploaded-tab-3-why-choose-us-tab-4-our-philosophy-and-tab-5-message-from-the-founder-content-removing-the-current-placeholder-our-story-philosophy-why-choose-learnhub-text",
+      "title": "Update the About/Why Choose Us page (frontend/src/pages/AboutWhyPage.tsx) so it contains only the uploaded “TAB 3: WHY CHOOSE US”, “TAB 4: OUR PHILOSOPHY”, and “TAB 5: MESSAGE FROM THE FOUNDER” content, removing the current placeholder “Our Story/Philosophy/Why Choose LearnHub?” text.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-global-navigation-and-footer-branding-to-align-with-dreamonomy-and-the-uploaded-information-only-no-unrelated-taglines-attribution-text",
+      "title": "Update global navigation and footer branding to align with DREAMONOMY and the uploaded information only (no unrelated taglines/attribution text).",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contact-page-frontend-src-pages-contactpage-tsx-to-remove-placeholder-contact-details-email-phone-address-hours-that-are-not-part-of-the-uploaded-content-while-keeping-the-netlify-ready-contact-form-functional",
+      "title": "Update the Contact page (frontend/src/pages/ContactPage.tsx) to remove placeholder contact details (email/phone/address/hours) that are not part of the uploaded content, while keeping the Netlify-ready contact form functional.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-existing-site-s-page-copy-to-use-only-the-user-provided-dreamonomy-text-content-homepage-services-why-choose-us-our-philosophy-message-from-the-founder-replacing-all-current-placeholder-generic-wording-while-keeping-the-current-layout-animations-rotating-circular-hero-logo-and-education-themed-background-treatment-unchanged",
+      "title": "Update the existing site’s page copy to use only the user-provided DREAMONOMY text content (Homepage, Services, Why Choose Us, Our Philosophy, Message from the Founder), replacing all current placeholder/generic wording while keeping the current layout, animations, rotating circular hero logo, and education-themed background treatment unchanged.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-home-page-content-in-frontend-src-pages-homepage-tsx-to-replace-the-current-hero-headline-subheadline-cta-button-labels-and-the-why-families-choose-us-section-cta-section-text-with-the-uploaded-dreamonomy-homepage-text-and-remove-any-generic-claims-not-present-in-the-uploaded-content",
+      "title": "Update Home page content in frontend/src/pages/HomePage.tsx to replace the current hero headline/subheadline, CTA button labels, and the “Why Families Choose Us” section + CTA section text with the uploaded DREAMONOMY HOMEPAGE text (and remove any generic claims not present in the uploaded content).",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-services-page-content-in-frontend-src-pages-servicespage-tsx-to-reflect-only-the-uploaded-tab-1-services-structure-and-wording-replacing-the-current-hard-coded-generic-services-array-and-any-generic-hero-cta-copy",
+      "title": "Update Services page content in frontend/src/pages/ServicesPage.tsx to reflect only the uploaded “TAB 1: SERVICES” structure and wording, replacing the current hard-coded generic services array and any generic hero/CTA copy.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-about-why-choose-us-page-content-in-frontend-src-pages-aboutwhypage-tsx-so-it-contains-only-the-uploaded-tab-3-why-choose-us-tab-4-our-philosophy-and-tab-5-message-from-the-founder-content-and-remove-replace-the-current-placeholder-our-story-our-philosophy-why-choose-learnhub-text-and-any-learnhub-naming",
+      "title": "Update About/Why Choose Us page content in frontend/src/pages/AboutWhyPage.tsx so it contains only the uploaded “TAB 3: WHY CHOOSE US”, “TAB 4: OUR PHILOSOPHY”, and “TAB 5: MESSAGE FROM THE FOUNDER” content, and remove/replace the current placeholder “Our Story/Our Philosophy/Why Choose LearnHub?” text and any “LearnHub” naming.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-global-branding-in-frontend-src-components-navbar-tsx-and-frontend-src-components-footer-tsx-to-align-with-dreamonomy-and-the-uploaded-information-only-removing-the-current-learnhub-brand-label-and-the-footer-attribution-link-text-that-is-not-part-of-the-uploaded-content",
+      "title": "Update global branding in frontend/src/components/Navbar.tsx and frontend/src/components/Footer.tsx to align with DREAMONOMY and the uploaded information only, removing the current “LearnHub” brand label and the footer attribution link/text that is not part of the uploaded content.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-contact-page-content-in-frontend-src-pages-contactpage-tsx-to-remove-placeholder-contact-details-email-phone-address-hours-that-are-not-part-of-the-uploaded-dreamonomy-content-while-keeping-the-existing-netlify-ready-contact-form-functional-and-styled-as-is",
+      "title": "Update Contact page content in frontend/src/pages/ContactPage.tsx to remove placeholder contact details (email/phone/address/hours) that are not part of the uploaded DREAMONOMY content, while keeping the existing Netlify-ready contact form functional and styled as-is.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-hero-content-frontend-src-pages-homepage-tsx-so-that-directly-under-the-rotating-circular-logo-element-it-displays-only-the-user-provided-homepage-text-verbatim-and-remove-any-other-ai-created-hero-text-elements-headline-subheadline-cta-button-labels-buttons-that-are-currently-shown-in-that-area",
+      "title": "Update the Home page hero content (frontend/src/pages/HomePage.tsx) so that directly under the rotating circular logo element it displays only the user-provided HOMEPAGE text (verbatim), and remove any other AI-created hero text elements (headline, subheadline, CTA button labels/buttons) that are currently shown in that area.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-centralized-copy-source-frontend-src-content-dreamonomycopy-ts-so-the-home-page-hero-no-longer-contains-the-previous-placeholder-headline-subheadline-cta-strings-and-instead-stores-the-new-user-provided-homepage-hero-copy-in-a-structure-that-matches-the-updated-homepage-rendering-e-g-as-a-single-body-string-or-an-ordered-list-of-paragraphs",
+      "title": "Update the centralized copy source (frontend/src/content/dreamonomyCopy.ts) so the Home page hero no longer contains the previous placeholder headline/subheadline/CTA strings, and instead stores the new user-provided HOMEPAGE hero copy in a structure that matches the updated HomePage rendering (e.g., as a single body string or an ordered list of paragraphs).",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-frontend-src-pages-homepage-tsx-section-order-so-that-after-the-hero-section-the-next-sections-render-in-this-order-2-services-3-message-from-the-founder-4-why-choose-us-placed-at-the-end-if-a-cta-section-currently-appears-after-why-choose-us-relocate-or-refactor-it-so-it-does-not-appear-after-the-final-why-choose-us-section",
+      "title": "Update the Home page (frontend/src/pages/HomePage.tsx) section order so that after the hero section, the next sections render in this order: (2) Services, (3) Message from the Founder, (4) Why Choose Us (placed at the end). If a CTA section currently appears after Why Choose Us, relocate or refactor it so it does not appear after the final (Why Choose Us) section.",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-centralized-services-copy-in-frontend-src-content-dreamonomycopy-ts-to-remove-the-current-placeholder-generic-services-content-hero-title-subtitle-categories-array-and-cta-copy-and-replace-it-with-only-the-user-provided-services-our-learning-services-content-and-its-full-structure-intro-paragraph-1-core-academic-subjects-elementary-k-10-with-subject-list-our-approach-bullets-closing-sentence-2-out-of-syllabus-interdisciplinary-learning-our-usp-with-subject-list-these-subjects-help-children-bullets-3-responsible-ai-education-for-children-with-2-line-positioning-curriculum-focus-bullets-outcome-line-4-subject-journaling-emotional-tracking-with-journal-tracking-bullets-this-allows-us-to-bullets-and-personalised-growth-mentorship-programs-with-3-program-items-we-help-students-bullets",
+      "title": "Update the centralized services copy in `frontend/src/content/dreamonomyCopy.ts` to remove the current placeholder/generic services content (hero title/subtitle, categories array, and CTA copy) and replace it with only the user-provided “SERVICES / Our Learning Services” content and its full structure: intro paragraph, (1) Core Academic Subjects (Elementary K–10) with subject list + “Our Approach” bullets + closing sentence, (2) Out-of-Syllabus & Interdisciplinary Learning (Our USP) with subject list + “These subjects help children” bullets, (3) Responsible AI Education for Children with 2-line positioning + curriculum focus bullets + outcome line, (4) Subject Journaling & Emotional Tracking with journal tracking bullets + “This allows us to” bullets, and “Personalised Growth & Mentorship Programs” with 3 program items + “We help students” bullets.",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-frontend-src-pages-servicespage-tsx-to-render-the-services-page-using-the-new-user-provided-services-structure-from-dreamonomycopy-replacing-the-current-generic-6-card-grid-and-the-generic-cta-section-keep-the-existing-overall-styling-approach-responsive-layout-current-background-treatment-via-decorativeaccents-and-existing-typography-spacing-conventions-but-ensure-the-page-displays-all-provided-sections-and-bullet-lists-clearly-and-scannably-on-desktop-tablet-mobile",
+      "title": "Update `frontend/src/pages/ServicesPage.tsx` to render the Services page using the new user-provided services structure from `dreamonomyCopy`, replacing the current generic 6-card grid and the generic CTA section. Keep the existing overall styling approach (responsive layout, current background treatment via `DecorativeAccents`, and existing typography/spacing conventions), but ensure the page displays all provided sections and bullet lists clearly and scannably on desktop/tablet/mobile.",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -162,10 +344,52 @@
       "summary": "Increase the rotating circular hero element to be bigger than half the page/hero height (greater visual emphasis) while staying responsive and avoiding overflow",
       "reqIds": [],
       "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Update site background to be simple/clean while incorporating small decorative elements extracted from the user's provided image and placed subtly throughout sections/pages",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Replace the current background treatment with a new education-themed background using scattered maths symbols, multi-language letters (English/Japanese/Chinese/Hindi/Tamil), and science visuals (physics symbols, chemistry bonds/equations, biology symbols/names/equations), plus related educational logos/symbols, applied subtly across pages",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Replace all existing/placeholder website copy with the user-provided DREAMONOMY content, including Homepage hero text and sections for Services, Why Choose Us, Our Philosophy (optional), and Message from the Founder",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Update the site information architecture/content layout to reflect the user-provided \"TAB\" structure (Services, Why Choose Us, Our Philosophy, Message from the Founder) while keeping the site static and easy to navigate",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Homepage: place the user-provided HOMEPAGE copy directly under the rotating circular hero element, replacing any existing hero/intro text and removing any AI-created headings/subheaders",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Navbar branding: replace the current top-left text/logo with the user-provided logo only (no DREAMONOMY text), using either of the identical uploaded images",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Reorder homepage sections so Services is 2nd, Message from the Founder is 3rd, and Why Choose Us is 4th (placed at the end after Services and Founder message)",
+      "reqIds": [],
+      "status": "pending"
     }
   ],
   "gameProjectType": "none",
-  "projectName": "Build vibrant, child-friendly marketing site (Home, About, Services, Contact) with rotating hero element and sticky nav",
+  "projectName": "DREAMONOMY static marketing website",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

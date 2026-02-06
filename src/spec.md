@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Make the Home page rotating circular hero/logo element larger on desktop (clearly more than half the hero section height) while keeping it responsive and non-overflowing on smaller screens.
+**Goal:** Replace the Services page’s generic/placeholder content with the provided DREAMONOMY “Our Learning Services” content and render it using a nested, section-based structure.
 
 **Planned changes:**
-- Increase the desktop sizing rules for the rotating circular hero/logo element so it visually occupies >50% of the hero section height.
-- Adjust responsive sizing at tablet/mobile breakpoints to ensure no overflow, clipping, horizontal scroll, or content overlap.
-- Preserve the existing circular mask, perfect circle shape, and rotation/pause-on-hover behavior while scaling.
+- Update `frontend/src/content/dreamonomyCopy.ts` to remove existing placeholder services hero/category/CTA copy and replace it with only the provided “SERVICES / Our Learning Services” structure (intro + all specified sections and bullet lists).
+- Update `frontend/src/pages/ServicesPage.tsx` to render the Services page from the new structured `dreamonomyCopy.services` content, replacing the current 6-card grid and the generic CTA section while keeping the existing styling approach and ensuring readability across screen sizes.
 
-**User-visible outcome:** On the Home page, the rotating circular hero/logo element appears noticeably larger and more dominant on desktop, and still scales cleanly on tablet and mobile without layout issues.
+**User-visible outcome:** The Services page shows “Our Learning Services” followed by the full set of provided service sections (with clear headings and bullet lists), with no old service cards or generic CTA content.

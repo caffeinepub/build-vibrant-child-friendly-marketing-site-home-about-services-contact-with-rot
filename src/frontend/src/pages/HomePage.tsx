@@ -1,4 +1,7 @@
-import { ArrowRight, Sparkles, Users, Award, BookOpen } from 'lucide-react';
+import { ArrowRight, Sparkles, Palette, Target, Code, Lightbulb, BookOpen, Users, Award } from 'lucide-react';
+import DecorativeAccents from '../components/DecorativeAccents';
+import ServiceCard from '../components/ServiceCard';
+import { dreamonomyCopy } from '../content/dreamonomyCopy';
 
 type Page = 'home' | 'about' | 'services' | 'contact';
 
@@ -7,18 +10,32 @@ interface HomePageProps {
 }
 
 export default function HomePage({ onNavigate }: HomePageProps) {
+  const { homepage, services, about } = dreamonomyCopy;
+
+  const iconMap: Record<string, any> = {
+    Palette,
+    Target,
+    Code,
+    Lightbulb,
+    BookOpen,
+    Users,
+  };
+
+  const colorGradients = [
+    'from-brand-blue to-brand-purple',
+    'from-brand-purple to-brand-pink',
+    'from-brand-pink to-brand-orange',
+    'from-brand-orange to-brand-yellow',
+    'from-brand-yellow to-brand-green',
+    'from-brand-green to-brand-blue',
+  ];
+
   return (
     <div className="pt-16 sm:pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-blue/20 via-brand-purple/20 to-brand-pink/20">
-        {/* Background Decorative Shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img
-            src="/assets/generated/blob-shapes-set.dim_1600x900.png"
-            alt=""
-            className="absolute top-0 left-0 w-full h-full object-cover opacity-30 animate-float"
-          />
-        </div>
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden hero-bg-simple">
+        {/* Decorative Accents */}
+        <DecorativeAccents variant="hero" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
@@ -35,119 +52,146 @@ export default function HomePage({ onNavigate }: HomePageProps) {
               </div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-brand-orange via-brand-pink to-brand-purple bg-clip-text text-transparent">
-                Unlock Your Child's
-              </span>
-              <br />
-              <span className="text-gray-900 dark:text-white">Potential</span>
-            </h1>
+            {/* User-provided hero copy */}
+            <div className="space-y-6 max-w-4xl mx-auto">
+              {homepage.hero.paragraphs.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className={`${
+                    index === 0
+                      ? 'text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white leading-tight'
+                      : 'text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed'
+                  }`}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Personalized learning experiences that inspire curiosity, build confidence, and create lifelong learners
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button
-                onClick={() => onNavigate('services')}
-                className="btn-primary group"
-              >
-                Explore Programs
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+            {/* CTA Button integrated into hero */}
+            <div className="mt-10">
               <button
                 onClick={() => onNavigate('contact')}
-                className="btn-secondary"
+                className="btn-primary group"
               >
-                Get Started Today
+                {homepage.cta.buttonText}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute top-20 left-10 animate-float-delayed">
+        <div className="absolute top-20 left-10 animate-float-delayed z-10">
           <Sparkles className="w-8 h-8 text-brand-yellow opacity-60" />
         </div>
-        <div className="absolute bottom-32 right-16 animate-float">
+        <div className="absolute bottom-32 right-16 animate-float z-10">
           <Sparkles className="w-6 h-6 text-brand-pink opacity-60" />
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 sm:py-24 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Services Section */}
+      <section className="relative py-16 sm:py-24 bg-white dark:bg-gray-900 overflow-hidden">
+        <DecorativeAccents variant="section" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent">
-                Why Families
-              </span>{' '}
-              <span className="text-gray-900 dark:text-white">Choose Us</span>
+              <span className="bg-gradient-to-r from-brand-blue to-brand-purple bg-clip-text text-transparent">
+                {services.hero.title}
+              </span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              We combine proven teaching methods with innovative technology to create engaging learning experiences
+              {services.hero.subtitle}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Users,
-                title: 'Expert Educators',
-                description: 'Learn from passionate teachers who understand how children learn best',
-                color: 'from-brand-blue to-brand-purple',
-              },
-              {
-                icon: Award,
-                title: 'Proven Results',
-                description: 'Track progress with measurable outcomes and celebrate every milestone',
-                color: 'from-brand-purple to-brand-pink',
-              },
-              {
-                icon: BookOpen,
-                title: 'Engaging Content',
-                description: 'Interactive lessons that make learning fun and keep kids motivated',
-                color: 'from-brand-pink to-brand-orange',
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="feature-card group"
-              >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <feature.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+            {services.categories.map((service, index) => {
+              const Icon = iconMap[service.icon] || Palette;
+              return (
+                <ServiceCard
+                  key={index}
+                  icon={Icon}
+                  title={service.title}
+                  description={service.description}
+                  color={colorGradients[index % colorGradients.length]}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-brand-orange/10 via-brand-pink/10 to-brand-purple/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-brand-orange via-brand-pink to-brand-purple bg-clip-text text-transparent">
-                Ready to Begin?
+      {/* Message from the Founder Section */}
+      <section className="relative py-16 sm:py-24 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+        <DecorativeAccents variant="sparse" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent">
+                  {about.founder.heading}
+                </span>
+              </h2>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 dark:border-gray-700">
+              <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                {about.founder.message}
+              </p>
+              <p className="text-right text-lg font-semibold text-gray-900 dark:text-white">
+                — {about.founder.signature}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="relative py-16 sm:py-24 bg-white dark:bg-gray-900 overflow-hidden">
+        <DecorativeAccents variant="section" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-brand-purple to-brand-pink bg-clip-text text-transparent">
+                {homepage.whyChooseUs.heading}
               </span>
             </h2>
-            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join thousands of families who trust us to nurture their children's love of learning
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              {homepage.whyChooseUs.subheading}
             </p>
-            <button
-              onClick={() => onNavigate('contact')}
-              className="btn-primary group"
-            >
-              Start Your Journey
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {homepage.whyChooseUs.features.map((feature, index) => {
+              const icons = [Palette, Award, Users];
+              const colors = [
+                'from-brand-blue to-brand-purple',
+                'from-brand-purple to-brand-pink',
+                'from-brand-pink to-brand-orange',
+              ];
+              const Icon = icons[index];
+              
+              return (
+                <div
+                  key={index}
+                  className="feature-card group"
+                >
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${colors[index]} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
